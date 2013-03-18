@@ -1,0 +1,62 @@
+@charset 'UTF-8';
+/*
+ * Bootstrap Image Gallery CSS Example 1.0
+ * https://github.com/blueimp/Bootstrap-Image-Gallery
+ *
+ * Copyright 2012, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+
+*/
+body {
+    padding-top: 100px;
+    /*background: #222;*/
+    color: #fff;
+    background: #ffffff;
+}
+header {
+    margin-bottom: 30px;
+}
+header h1 {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
+    color: #fff;
+    margin-bottom: 10px;
+}
+header a {
+    color: orange;
+}
+.modal {
+    color: #333;
+}
+/* product item */
+.product-item{
+    margin: 20px;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 4px;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.055);
+}
+.product-item a{
+
+}
+.product-item p{
+    margin: 0 0 20px;
+}
+.thumbnail{
+    float: left;
+}
+.price {
+    background-color: #3a87ad;
+    font-size: 150%;
+    line-height: 150%;
+    /*position: absolute;*/
+    /*margin-left: -15px;*/
+    margin-top: -10px;
+    margin-right: -20px;
+    text-align: center;
+    width: 90px;
+    -webkit-transform: rotate(350deg);
+    padding: 1px 4px 2px;
+    font-weight: bold;
+}
