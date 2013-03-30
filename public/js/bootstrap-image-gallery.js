@@ -14,6 +14,7 @@
 
 (function (factory) {
     'use strict';
+
     if (typeof define === 'function' && define.amd) {
         // Register as an anonymous AMD module:
         define([
@@ -30,6 +31,41 @@
     }
 }(function ($, loadImage) {
     'use strict';
+    //load products
+
+    var products = [];
+
+    function estim(index,iRaty){
+        var tag = '<div id="raty-'+index+'" class="estimate" data-rating="2.9779" style="display: inline; cursor: pointer">';
+        for(var i=1;i<6;++i){
+            tag += '<img src="/img/star-'+ (i <= iRaty ? 'on' : 'off')
+                +'.png" alt="'+i+'" title="bad" onmouseover="estimateSelect('+index+','+i+
+                ')" onmouseout="estimateUnselect('+index+','+i+')">&nbsp;';
+        }
+        tag += '<input type="hidden" name="score" value="2.9779"></div>';
+        return tag;
+    }
+
+    // Load images via flickr for demonstration purposes:
+    $.ajax({ url: 'api/getOdessaImages', dataType: 'json'}).done(function (data) {
+        var product = $('#gallery');
+        var index = 1;
+        products = data;
+        $.each(data, function (index, photo) {
+            $('<div class="thumbnail product-item"></div>').append(
+                $('<a data-gallery="gallery"/>')
+                    // .append('<div class="label label-info price">€ 10,<sup>99</sup></div>')
+                    .append($('<img  style="vertical-align: baseline">').prop('src', photo.imgPath))//
+                    .prop('href', photo.imgPath)
+                    .prop('title', photo.title)
+            )
+                .append('<div class="caption"><p>' + photo.title+'</p>'+estim(index, photo.iRaty)+
+                '<span class="label label-info price pull-right">'+photo.price+' грн.</span></div>')
+                .appendTo(product);
+            ++index;
+        });
+    });
+
     // Bootstrap Image Gallery is an extension to the Modal dialog of Twitter's
     // Bootstrap toolkit, to ease navigation between a set of gallery images.
     // It features transition effects, fullscreen mode and slideshow functionality.
@@ -73,9 +109,16 @@
                         options.index = index;
                     }
                 });
-            if (!this.$links[options.index]) {
-                options.index = 0;
-            }
+            //new
+//            this.$links = products
+//                for(var i =0; i<products.length; +i){
+//                    if (products[i].imgPath === options.href) {
+//                        options.index = index;
+//                    }
+//                }
+//            if (!this.$links[options.index]) {
+//                options.index = 0;
+//            }
         },
         getUrl: function (element) {
             return element.href || $(element).data('href');
