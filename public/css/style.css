@@ -1,0 +1,163 @@
+@charset 'UTF-8';
+/*
+ * Bootstrap Image Gallery CSS Example 1.0
+ * https://github.com/blueimp/Bootstrap-Image-Gallery
+ *
+ * Copyright 2012, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+
+*/
+body {
+    padding-top: 100px;
+    /*background: #222;*/
+    color: #ffffff;
+    /*background: #123344;*/
+    /*font-size: 28px;*/
+    /*line-height: 20px;*/
+    /*font-size: 18px;*/
+    /*font-family: Verdana,sans-serif;*/
+}
+legend{
+    font-style: italic;
+}
+form label{
+    font-size: 16px;
+}
+
+.transform{
+    padding-bottom: 1px;
+    -moz-transform: rotate(-90deg); /*Firefox */
+    -webkit-transform: rotate(180deg); /* Safari Chrome */
+    -o-transform: rotate(-90deg); /* Opera */
+    -ms-transform: rotate(-90eg); /* IE9 */
+    /*transform: rotate(90deg); *//* CSS3 */
+}
+/*
+    slider
+*/
+.slide-show{
+    position: relative;
+    width: 234px;
+    height: 234px;
+    overflow: hidden;
+    border: #001100 solid thin;
+}
+.slide-container {
+
+}
+.slide-show-item {
+    width: 234px;
+    height: 234px;
+    position: absolute;
+   /*float: left;*/
+
+}
+/*
+    product item
+*/
+#gallery {
+    padding: 0px;
+}
+.product-item{
+    font-size: 18px;
+    margin: 20px;
+    border: 1px solid #ddd;
+    /*-webkit-border-radius: 4px;*/
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.055);
+}
+
+.product-item a{
+
+}
+.product-item p{
+    margin: 0 0 20px;
+}
+.thumbnail{
+    float: left;
+}
+.estimate img{
+    width: 10%;
+}
+.price {
+    background-color: #3333ff;
+    font-size: 140%;
+    line-height: 150%;
+    /*position: absolute;*/
+    /*margin-left: -15px;*/
+    /*margin-top: -10px;*/
+    margin-right: -20px;
+    text-align: center;
+    width: 100px;
+    -webkit-transform: rotate(350deg);
+    padding: 1px 4px 2px;
+    font-weight: bold;
+}
+/*
+    product preview dialog
+*/
+.modal-body{
+    /*width: 700px;*/
+    /*height: 400px;*/
+    /*margin-top: 20px;*/
+}
+.modal-title{
+    color: #000000;
+}
+.modal-number{
+    color: #d3d3d3;
+    font-size: 10px;
+}
+.expander{
+    border-top: 1px solid #eee;
+    /*border-bottom: 1px solid #eee;*/
+    padding-top: 5px;
+    margin:  10px 0px 10px 0px;
+}
+.expander .content{
+    /*background-color: #eee;*/
+    padding: 10px;
+}
+.expander-header{
+ /*border: #000000 thin;*/
+}
+
+.close {
+    height: 30px;
+    width: 30px;
+    background: url('../img/fancy_closebox.png') top left no-repeat;
+}
+/*  */
+#raty a:before {
+    background: url('../img/star-on.png');
+}
+
+/*
+    social
+*/
+.social-vk{
+
+}
+/*
+    footer
+*/
+.links ul {
+    list-style: none;
+    list-style-image: none;
+    list-style-position: outside;
+}
+.links {
+    font-size: 14px;
+}
+.links li {
+    margin: 2px 50px 0px 0px;
+}
+.col{
+    float: left;
+}
+ul.list {
+    margin: 0px;
+    padding: 0px;
+}

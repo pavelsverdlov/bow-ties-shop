@@ -1,0 +1,138 @@
+<% include _header.ejs %>
+
+<div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery">
+</div>
+<br/>
+<div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1">
+    <!--<div class="modal-header">-->
+        <a class="close" data-dismiss="modal"></a>
+        <!--<h3 class="modal-title"></h3>-->
+    <!--</div>-->
+
+    <div class="modal-body">
+        <div class="modal-body-left">
+            <span class="modal-title"></span><small id="idbow" class="modal-number">номер:</small>
+            <div class="modal-image"></div>
+        </div>
+        <div class="modal-body-right">
+            <div class="expander">
+                <div><span>Цена: </span><span class="modal-price"></span></div>
+                <br/>
+                <em><span>Описание:</span></em>
+                <div class="content">
+                    <!--<p>100% Французкий трикотаж.</p>-->
+                    <!--<small>-->
+                        <!--<ul>-->
+                            <!--<li>Размеры:</li>-->
+                            <!--<li>Размер шеи:</li>-->
+                        <!--</ul>-->
+                    <!--</small>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a id="neworder" class="btn btn-inverse modal-play" style="float: left">
+            <i class="icon-play icon-shopping-cart"></i>
+            <span>Оформить заказ</span>
+        </a>
+        <!--<a class="btn modal-download" target="_blank">-->
+            <!--<i class="icon-download"></i>-->
+            <!--<span>Download</span>-->
+        <!--</a>-->
+        <!--<a class="btn btn-success modal-play modal-slideshow" data-slideshow="5000">-->
+            <!--<i class="icon-play icon-white"></i>-->
+            <!--<span>Slideshow</span>-->
+        <!--</a>-->
+        <a class="btn btn-info modal-prev">
+            <i class="icon-arrow-left icon-white"></i>
+            <span>Назад</span>
+        </a>
+        <a class="btn btn-info modal-next">
+            <span>Вперед</span>
+            <i class="icon-arrow-right icon-white"></i>
+        </a>
+    </div>
+</div>
+
+<% include _scripts.ejs %>
+
+<script src="/js/load-image.min.js"></script>
+<script src="/js/bootstrap-image-gallery.js"></script>
+
+<script type="text/javascript">
+    function init(){
+//        $('#raty img').mouseover(function(){ );
+//        }).(function(){  });
+        $('#neworder').click(function(){
+            $(this).attr('href','/contacts/new_order/' + $('#idbow').text());
+        });
+    }
+
+    function estimateSelect(ibow,index){
+        changeStarImage(ibow,index,'/img/star-on.png');
+    }
+    function estimateUnselect(ibow,index){
+        changeStarImage(ibow,index,'/img/star-off.png');
+    }
+
+    function changeStarImage(ibow,index,isSelect){
+        var src1 = getStartImage(isSelect);
+        var src2 = getStartImage(!isSelect);
+        var tag = $('div#raty-'+ibow+' img[alt='+index+']');
+        var count = parseInt(tag.attr('alt'));
+        for(var i=1;i < 6; ++i){
+            $('div#raty-'+ibow+' img[alt='+i+']').attr('src',i <= count ? src1 : src2);
+        }
+    }
+    function getStartImage(isSelect){
+        return isSelect ? '/img/star-on.png' : '/img/star-off.png';
+    }
+
+/*
+    $(function () {
+        'use strict';
+
+        // Start slideshow button:
+        $('#start-slideshow').button().click(function () {
+            var options = $(this).data(),
+                    modal = $(options.target),
+                    data = modal.data('modal');
+            if (data) {
+                $.extend(data.options, options);
+            } else {
+                options = $.extend(modal.data(), options);
+            }
+            modal.find('.modal-slideshow').find('i')
+                    .removeClass('icon-play')
+                    .addClass('icon-pause');
+            modal.modal(options);
+        });
+
+        // Toggle fullscreen button:
+        $('#toggle-fullscreen').button().click(function () {
+            var button = $(this),
+                    root = document.documentElement;
+            if (!button.hasClass('active')) {
+                $('#modal-gallery').addClass('modal-fullscreen');
+                if (root.webkitRequestFullScreen) {
+                    root.webkitRequestFullScreen(
+                            window.Element.ALLOW_KEYBOARD_INPUT
+                    );
+                } else if (root.mozRequestFullScreen) {
+                    root.mozRequestFullScreen();
+                }
+            } else {
+                $('#modal-gallery').removeClass('modal-fullscreen');
+                (document.webkitCancelFullScreen ||
+                        document.mozCancelFullScreen ||
+                        $.noop).apply(document);
+            }
+        });
+
+    });
+*/
+
+</script>
+
+<% include _footer.ejs %>

@@ -1,0 +1,108 @@
+<% include _header.ejs %>
+
+    <h1>Bow ties</h1>
+    <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+    <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.</p>
+
+<!--<div id="raty" data-rating="2.9779" style="display: inline; cursor: pointer; width: 140px;">-->
+    <!--<img src="/img/star-on.png" alt="1" title="bad">&nbsp;-->
+    <!--<img src="/img/star-on.png" alt="2" title="poor">&nbsp;-->
+    <!--<img src="/img/star-on.png" alt="3" title="regular">&nbsp;-->
+    <!--<img src="/img/star-off.png" alt="4" title="good">&nbsp;-->
+    <!--<img src="/img/star-off.png" alt="5" title="gorgeous">-->
+    <!--<input type="hidden" name="score" value="2.9779">-->
+<!--</div>-->
+<div class="slide-show">
+     <div class="slide-container">
+         <div class="slide-show-item">
+            <img src="/img/products/5156e8408782bbb4250006f7.jpg" alt="1" width="234px" height="234px" >
+         </div>
+         <div class="slide-show-item">
+            <img src="/img/products/515706aab810d3967600078e.jpg" alt="2" width="234px" height="234px">
+         </div>
+         <div class="slide-show-item">
+            <img src="/img/products/db_file_img_4319_234x234.jpg" alt="3" width="234px" height="234px">
+         </div>
+     </div>
+ </div>
+
+<% include _scripts.ejs %>
+<script type="text/javascript">
+    function init(){
+        $('#raty img').mouseover(function(){
+           changeStarImage($(this),'/img/star-on.png');
+        }).mouseout(function(){
+            changeStarImage($(this),'/img/star-off.png');
+        });
+        var i = 0;
+        var array = $('div.slide-container div');
+        for(var ind =0; ind < array.length; ++ind){
+            $(array[ind]).css('left',i+'px');
+            leftArray[ind] = i;
+            i+=step;
+
+        }
+        setTimeout(slider, 2000);
+    }
+
+
+    var isIncrement;
+    var step = 234;
+    var index;
+    var length;
+    var current;
+    var leftArray=[];
+    function slider(){
+        var array = $('div.slide-container div');
+        var count = array.length;
+        var value = parseInt($(array[count-1]).css('left').replace('px',''));
+        var start = parseInt($(array[0]).css('left').replace('px',''));
+
+        if(start === 0){
+            current = 1;
+            index = 0;
+            length = count;
+
+            isIncrement = true;
+        }else if(value === 0){
+            index = count-1;
+            length = 0;
+            //step = -234;
+            isIncrement = false;
+            current = index;
+        }
+        var isNextWillShow = false;
+        while(true){
+            if(isIncrement && index === length || !isIncrement && index < 0){
+                index = isIncrement ? 0:count-1;
+                break;
+            }
+            var item = $(array[index]);
+            value = leftArray[index];//parseInt(item.css('left').replace('px',''));
+            if(!isNextWillShow){
+                isNextWillShow = value === 0;
+                console.log(value+ '-'+ step+'=');
+                value = isIncrement ? value - step :value + step ;
+                console.log(value);
+                item.animate({left:value+'px'},500);
+            }else{
+                item.animate({left:'0px'},500);
+                isNextWillShow = !isNextWillShow;
+                value = 0;
+            }
+            leftArray[index] = value;
+            index =  isIncrement ? index +1:index-1;
+        }
+        setTimeout(slider, 2000);
+    }
+
+    function changeStarImage(imgTag,srcUrl){
+        var count = parseInt(imgTag.attr('alt'));
+        for(var i=1;i < count; ++i){
+            $('img[alt='+i+']').attr('src',srcUrl);
+        }
+        imgTag.attr('src',srcUrl);
+    }
+
+</script>
+<% include _footer.ejs %>
