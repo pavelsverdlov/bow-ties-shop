@@ -1,10 +1,15 @@
 var models = require('../models');
 var emailcontroller = require('../controllers/emailController');
+var views ={
+    contact:'../views/contact.ejs',
+    new_order: '../views/new_order.ejs'
+};
+
 
 exports.index = function(req, res){
     var lvm =  models.layout.get();
     lvm.content = '';
-    res.render('../views/contact.ejs',lvm);
+    res.render(views.contact,lvm);
 };
 
 exports.new_order = function(req, res){
@@ -14,7 +19,7 @@ exports.new_order = function(req, res){
         'orderId': req.params.idbow,
         'user':models.user.create('','','')
     };
-    res.render('../views/contacts/new_order.ejs',lvm);
+    res.render(views.new_order,lvm);
 };
 
 exports.new_order_POST = function(req, res){
@@ -39,6 +44,6 @@ exports.new_order_POST = function(req, res){
             };
             console.log("Message sent: " + response.message);
         }
-        res.render('../views/contacts/new_order.ejs',lvm);
+        res.render(views.new_order,lvm);
     });
 }

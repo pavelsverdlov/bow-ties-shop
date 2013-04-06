@@ -15,5 +15,18 @@ exports.sendNewOrder = function(order,user,callback){
         text: 'Здравствуйте ' + user.firstName +' ' + user.lastName, // plaintext body
         html: '<b>' + user.email +'</b>'
     }
-    smtpTransport.sendMail(mailOptions, callback);
+    //send us
+    smtpTransport.sendMail(mailOptions, function(error, response){
+        if(error){
+            console.log(error);
+            lvm.content = '';
+        }else{
+            //send orderer
+            smtpTransport.sendMail(mailOptions, callback);
+        }
+    });
+
+
+
+
 }

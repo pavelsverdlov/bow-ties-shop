@@ -1,0 +1,78 @@
+<% include _header.ejs %>
+
+<form class="form-horizontal well" action="/contacts/new_order"  method="post">
+    <fieldset>
+        <legend>Оформление заказа</legend>
+        <div style="float: left">
+        <div class="control-group">
+            <label class="control-label" for="order-number">Номер товара:</label>
+            <div class="controls">
+                <input class="input-xlarge disabled" id="order-number" type="text" disabled=""
+                        value="<%= content.orderId %>">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="first-name">Фамилия*:</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="first-name" name="first-name" placeholder=""
+                       value="<%= content.user.firstName %>" >
+                <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="last-name">Имя*:</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="last-name" name="last-name" placeholder=""
+                       value="<%= content.user.lastName %>" >
+                <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="email">Email*:</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" name="email" id="email" placeholder=""
+                       value="<%= content.user.email %>">
+                <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="phone">Телефон:</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" name="phone" id="phone" placeholder="">
+                <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="comments">Комментарий:</label>
+            <div class="controls">
+                <textarea class="input-xlarge" name="comments" id="comments" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="is-subscribe">Подписаться:</label>
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox" name="is-subscribe" id="is-subscribe" value="option1">
+                    Хотите ли вы получать информацию о новинках и новостях с нашего сайта.
+                </label>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </div>
+        </div>
+        <div style="float: left;">
+            <img src="/img/products/<%= content.orderId %>.jpg" style="border-radius: 7px"/>
+        </div>
+    </fieldset>
+
+</form>
+
+
+<% include _scripts.ejs %>
+
+<script type="text/javascript">
+    function init(){    }
+</script>
+
+<% include _footer.ejs %>
