@@ -2,7 +2,6 @@
 <hr>
     <footer id="footer">
         <p class="pull-right"><a href="#top">Вернуться к началу</a></p>
-        </div>
         <nav class="links">
             <ul>
                 <li class="col">
@@ -16,31 +15,93 @@
                 <li class="col">
                     <h4>Ищите нас:</h4>
                     <ul class="list">
+                        <% for(var i=0; i<socials.length; i++) { %>
                         <li>
-                            <a href="#" class="social-vk">
-                                <img src="/img/vk-rus.png" width="35px" height="35px" />
+                            <a href="<%= socials[i].link %>" class="social-<%= socials[i].name %>" target="_blank">
+                                <img src="<%= socials[i].img %>" width="35px" height="35px" />
                             </a>
                         </li>
+                        <% } %>
                     </ul>
                 </li>
             </ul>
-            <!--<a href="http://news.bootswatch.com" onclick="pageTracker._link(this.href); return false;">Blog</a>-->
-            <!--<a href="http://feeds.feedburner.com/bootswatch">RSS</a>-->
-            <!--<a href="https://twitter.com/thomashpark">Twitter</a>-->
-            <!--<a href="https://github.com/thomaspark/bootswatch/">GitHub</a>-->
-            <!--<a href="https://github.com/thomaspark/bootswatch/tree/gh-pages/swatchmaker">Swatchmaker</a>-->
-            <!--<a href="http://news.bootswatch.com/post/22193315172/bootswatch-api">API</a>-->
-            <!--<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=F22JEM3Q78JC2">Donate</a>-->
         </nav>
-        <!--Made by <a href="#">Sverdlov Pavel</a>.<br/>-->
-        <!--Contact him <a href="mailto:sverdlov24@gmail.com">sverdlov24@gmail.com</a>.<br/>-->
-        <!--Based on <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>.-->
     </footer>
+    <div class="dialog-login" style="display: none">
+        <div class="dialog-body">
+        <form novalidate="" id="gaia_loginform" action="#" method="post">
+            <div class="controls">
+                <label class="control-label" for="email"><strong>Имя пользователя</strong></label>
+                <input class="input-xlarge" type="email" spellcheck="false" name="Email" id="email" value="">
+                <p class="help-block"></p>
+            </div>
+            <div class="controls">
+                <label class="control-label" for="passwd"><strong>Пароль</strong></label>
+                <input class="input-xlarge" type="password" name="passwd" id="passwd" value="">
+                <p class="help-block"></p>
+            </div>
+            <button type="submit" class="btn btn-primary">Войти</button>
+            <div style="float: right; margin-top: 10px">
+                <label class="checkbox"><input type="checkbox" id="remember-me" value="">Оставаться в системе</label>
+                <input type="hidden" name="rmShown" value="1">
+            </div>
+        </form>
+        <a id="link-forgot-passwd" href="#" target="_top">Не удается войти в аккаунт?</a>
+        </div>
+    </div>
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+    var dial;
     $(window).load(function(){
         init();
+        dial = createEmailDialog('.dialog-login');
+
     });
+    $('a#login').click(function(){
+        dial.dialog("open");
+    });
+    function createEmailDialog(elementKey) {
+        var dialogForm = $(elementKey);
+        function onSubmitForm() {
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: $(this).serialize(),
+                success: function (result) {
+                    if (result.success) {
+                        dialogForm.dialog("close");
+                        dialogForm.empty();
+                    } else {
+                        dialogForm.empty();
+                        dialogForm.html(result);
+                        dialogForm.dialog("open");
+                    }
+                }
+            });
+            return false;
+        }
+
+        dialogForm.dialog({
+            title: "Войти",
+            modal: true,
+//            resizable: false,
+//            closeText: 'fechar',
+//            show: 'fade',
+//            hide: 'fade',
+            width: "420px",
+            autoOpen: false,
+            dialogClass: "main-dialog"
+//            buttons: {
+//                "Войти": function () {
+//                    $("form#send-mail").submit(onSubmitForm);
+//                    $("form#send-mail").submit();
+//                },
+//                "Отмена": function () { $(this).dialog("close"); }
+//            }
+        });
+        return dialogForm;
+    }
 </script>

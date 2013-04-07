@@ -3,25 +3,21 @@
 //var path = '/img/products/';
 var repository = require("../data/repository");
 
-exports.getOdessaImages = function(req, res){
-//    exec("ls public"+path, function (error, stdout, stderr) {
-        //var json ={ "images": JSON.stringify(stdout.split('\n'))};
-//
-//        var data= stdout.split('\n');
-//        var images = repository.getBowTies();
-//        for(var i=0; i < data.length; ++i){
-//            if(data[i] !== ""){
-//                images.push(model.createBowTie("Двусторонний галстук-бабочка",path + data[i],4,100));
-//            }
-//        }
-//        var images = repository.getBowTies();
-//        res.writeHead(200, {"Content-Type": "json"});
-//        res.write(JSON.stringify(images));
-//        res.end();
-//    });
+exports.getProducts = function(req, res){
     var images = repository.getBowTies(function(data){
         res.writeHead(200, {"Content-Type": "json"});
         res.write(JSON.stringify(data));
         res.end();
     });
-}
+};
+exports.getLoginForm = function(req, res){
+    var html = '<form class="form-login">\
+        <input type="text" class="input-small" placeholder="Email">\
+        <input type="password" class="input-small" placeholder="Password">\
+            <button type="submit" class="btn">Go</button>\
+        </form>';
+
+    res.writeHead(200, {"Content-Type": "html"});
+    res.write(html);
+    res.end();
+};

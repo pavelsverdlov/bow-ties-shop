@@ -14,12 +14,28 @@ body {
     line-height: 100%;
     padding-top: 3%;
     /*background: #222;*/
-    color: #ffffff;
+    color: #4b322e;
     /*background: #123344;*/
     /*font-size: 28px;*/
     /*line-height: 20px;*/
     /*font-size: 18px;*/
     font-family: Arial, Tahoma, Verdana, sans-serif;
+    /*background: url('../img/back.png') top left repeat;*/
+
+    background-color: #e3dfd2;
+    /*background-image: -webkit-gradient(radial,center center,0,center center,460,from(#12a5b0),to(#0f8790));*/
+    background-image: -webkit-radial-gradient(circle,#f1ecda,#f1ecda);
+    /*background-image: -moz-radial-gradient(circle,#12a5b0,#0f8790);*/
+    /*background-image: -o-radial-gradient(circle,#12a5b0,#0f8790);*/
+    /*background-repeat: no-repeat;*/
+    /*padding: 0px 20px 20px 20px;*/
+    /*border: 1px solid #9786ab;*/
+}
+h4{
+    font-family: Arial, Tahoma, Verdana, sans-serif;
+}
+hr{
+    border-top: 1px solid #ad1d28;
 }
 legend{
     font-style: italic;
@@ -27,8 +43,12 @@ legend{
 form label{
     font-size: 16px;
 }
-
-
+a {
+    color: #ad1d28;
+}
+a:hover, a:focus {
+    color: #ad1d28;
+}
 .transform{
     padding-bottom: 1px;
     -moz-transform: rotate(-90deg); /*Firefox */
@@ -36,6 +56,22 @@ form label{
     -o-transform: rotate(-90deg); /* Opera */
     -ms-transform: rotate(-90eg); /* IE9 */
     /*transform: rotate(90deg); *//* CSS3 */
+}
+.content-body{
+    padding: 0px 0px 20px 0px;
+}
+.block{
+    background-color: #d5d1c5;
+    padding: 20px;
+    float: left;
+}
+.block-img{
+    float: left;
+    margin: 0px 0px 20px 20px;
+    width: 29%;
+}
+.block-img img{
+    border-radius: 7px
 }
 /*
     slider
@@ -68,7 +104,7 @@ form label{
     width: 18%;
     /*font-size: 18px;*/
     margin: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid #765752;
     /*-webkit-border-radius: 4px;*/
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.055);
 }
@@ -86,12 +122,13 @@ form label{
     width: 10%;
 }
 .price {
-    background-color: #3333ff;
+    background-color: #765752;
     font-size: 140%;
     line-height: 150%;
     /*position: absolute;*/
     /*margin-left: -15px;*/
     /*margin-top: -10px;*/
+    color: #ffffff;
     margin-right: -35px;
     text-align: center;
     width: 50%;
@@ -121,7 +158,7 @@ form label{
     border-top: 1px solid #eee;
     /*border-bottom: 1px solid #eee;*/
     padding-top: 5px;
-    margin:  10px 0px 10px 0px;
+    margin:  10px 0px 0px 0px;
 }
 .expander .content{
     /*background-color: #eee;*/
@@ -148,6 +185,23 @@ form label{
 
 }
 /*
+    header
+*/
+.navbar-inner {
+    /*background-image: -webkit-gradient(linear,0 0,0 100%,from(#aca0b9),to(#aca0b9));*/
+    /*border: 1px solid #9786ab;*/
+}
+.navbar-inner .brand{
+    padding: 10px 20px 0px;
+}
+.login{
+    float: right;
+    /*margin: 15px 0px 0px 0px;*/
+}
+.login a{
+    cursor: pointer;
+}
+/*
     footer
 */
 .links ul {
@@ -168,3 +222,53 @@ ul.list {
     margin: 0px;
     padding: 0px;
 }
+/*
+    dialog login
+*/
+.ui-dialog{
+    background: #f1ecda;
+    padding: 0px;
+}
+.main-dialog label{
+    color: #4b322e;
+}
+.main-dialog .dialog-body{
+    margin: 20px;
+    background: #e3dfd2;
+    padding: 20px;
+}
+.main-dialog .ui-dialog-titlebar{
+    background-color: #ad1d28;
+    background-image: -moz-linear-gradient(top,#ad1d28,#ad1d28);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#ad1d28),to(#ad1d28));
+    background-image: -webkit-linear-gradient(top,#ad1d28,#ad1d28);
+    background-image: -o-linear-gradient(top,#ad1d28,#ad1d28);
+    background-image: linear-gradient(to bottom,#ad1d28,#ad1d28);
+    color: #ffffff;
+    background-repeat: repeat-x;
+    border: 1px solid #79141c;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.main-dialog .ui-widget-content a {
+    color: #ad1d28;
+}
+.main-dialog button{
+    margin: 0px;
+}
+.main-dialog .ui-dialog-titlebar-close{
+    /*font-family: FontAwesome;*/
+    width: 14px;
+    height: 20px;
+    /*content: "\f00d";*/
+    background-image: url("../img/glyphicons-halflings.png");
+    background-position: -312px 5px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    margin-right: 10px;
+}
+
+
+

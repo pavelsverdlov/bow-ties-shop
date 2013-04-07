@@ -22,6 +22,7 @@ exports.init = function(app){
     app.get('/bow-ties', products.index);
 
     //API
-    app.get('/api/getOdessaImages', api.getOdessaImages);
+    app.get('/api/getProducts', api.getProducts);
+    app.get('/api/getLoginForm',api.getLoginForm)
 
 };

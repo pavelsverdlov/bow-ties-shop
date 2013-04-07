@@ -47,7 +47,7 @@
     }
 
     // Load images via flickr for demonstration purposes:
-    $.ajax({ url: 'api/getOdessaImages', dataType: 'json'}).done(function (data) {
+    $.ajax({ url: 'api/getProducts', dataType: 'json'}).done(function (data) {
         var product = $('#gallery');
         var index = 1;
         $.each(data, function (index, photo) {
@@ -185,7 +185,8 @@
             var prod = products[this.$links[index].title];
             modal.find('.modal-number').text(prod.id);
             modal.find('.modal-price').text(prod.price + ' грн.');
-            modal.find('.content').text(prod.descr);
+            modal.find('#descr').text(prod.descr);
+            modal.find('#size').text(prod.size);
             modal.find('.modal-title').text(prod.title);
             //
             modal.find('.modal-download').prop(
