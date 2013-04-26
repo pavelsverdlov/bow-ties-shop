@@ -21,8 +21,8 @@ exports.get = function(){
     return new LayoutViewModel(
         'Bow Ties',
         [   {"name":"Главная", "link":"/home"},
-            {"name":"Ассортимент", "link":"/bow-ties"},
             {"name":"О нас", "link":"/about"},
+            {"name":"Ассортимент", "link":"/bow-ties"},
             {"name":"Контакты", "link":"/contacts"}
         ],
         [

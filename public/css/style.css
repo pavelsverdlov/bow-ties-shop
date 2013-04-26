@@ -11,15 +11,18 @@
 
 */
 body {
+    margin: 0px;
     line-height: 100%;
     padding-top: 3%;
     /*background: #222;*/
-    color: #4b322e;
+
     /*background: #123344;*/
     /*font-size: 28px;*/
     /*line-height: 20px;*/
-    /*font-size: 18px;*/
-    font-family: Arial, Tahoma, Verdana, sans-serif;
+    font-size: 12px;
+    font-family: Tahoma, Arial, Verdana, sans-serif, Lucida Sans;
+    font-weight: normal;
+    color: #4b322e;
     /*background: url('../img/back.png') top left repeat;*/
 
     background-color: #e3dfd2;
@@ -31,8 +34,11 @@ body {
     /*padding: 0px 20px 20px 20px;*/
     /*border: 1px solid #9786ab;*/
 }
+.clear{
+    clear: both;
+}
 h4{
-    font-family: Arial, Tahoma, Verdana, sans-serif;
+    /*font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;*/
 }
 hr{
     border-top: 1px solid #ad1d28;
@@ -40,8 +46,18 @@ hr{
 legend{
     font-style: italic;
 }
+form{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+form legend{
+    color: #4b322e;
+    margin-left: 40px;
+    font-weight: bold;
+}
 form label{
-    font-size: 16px;
+    /*font-size: 16px;*/
+    color: #4b322e;
+
 }
 a {
     color: #ad1d28;
@@ -60,15 +76,15 @@ a:hover, a:focus {
 .content-body{
     padding: 0px 0px 20px 0px;
 }
-.block{
-    background-color: #d5d1c5;
-    padding: 20px;
+.block-formsend{
+    /*background-color: #d5d1c5;*/
     float: left;
+    width: 47%;
 }
-.block-img{
-    float: left;
+.block-contacts{
+    float: right;
     margin: 0px 0px 20px 20px;
-    width: 29%;
+    width: 47%;
 }
 .block-img img{
     border-radius: 7px
@@ -103,7 +119,7 @@ a:hover, a:focus {
     /*height: 30%;*/
     width: 18%;
     /*font-size: 18px;*/
-    margin: 20px;
+    margin: 3%;
     border: 1px solid #765752;
     /*-webkit-border-radius: 4px;*/
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.055);
@@ -142,17 +158,50 @@ a:hover, a:focus {
 /*
     product preview dialog
 */
-.modal-body{
-    /*width: 700px;*/
-    /*height: 400px;*/
-    /*margin-top: 20px;*/
+.modal-gallery{
+    background-image: -webkit-radial-gradient(circle,#f1ecda,#f1ecda);
 }
+/*.modal-body*/
+.modal-footer{
+    background: #e3dfd2;
+}
+
 .modal-title{
     color: #000000;
 }
 .modal-number{
     color: #d3d3d3;
     font-size: 10px;
+}
+.modal-price-block{
+    float: right;
+    font-size: 20px;
+    margin: 10px 0px 0px 0px;
+    font-weight: bold;
+}
+.modal-raty{
+    width: 40%;
+    float: left;
+}
+.modal-body-content{
+    padding: 10px;
+    font-size: 15px;
+    font-family: Tahoma, Arial, Verdana, sans-serif, Lucida Sans;
+    color: #4b322e;
+}
+.modal-body-content .price{
+    margin: 0;
+    font-weight: normal;
+    width: 40%;
+    float: right;
+    padding: 10px 0px 10px 0px;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+}
+.modal-body-image{
+
 }
 .expander{
     border-top: 1px solid #eee;
@@ -187,12 +236,21 @@ a:hover, a:focus {
 /*
     header
 */
+navbar-fixed-top{
+    height: 30px;
+}
+.navbar .nav>li>a{
+    padding: 5px 20px 5px 10px;
+}
 .navbar-inner {
+    min-height: 30px;
     /*background-image: -webkit-gradient(linear,0 0,0 100%,from(#aca0b9),to(#aca0b9));*/
     /*border: 1px solid #9786ab;*/
 }
 .navbar-inner .brand{
-    padding: 10px 20px 0px;
+    padding: 5px 20px 0px 20px;
+    /*font-size: 18px;*/
+    margin: 0;
 }
 .login{
     float: right;
@@ -228,14 +286,17 @@ ul.list {
 .ui-dialog{
     background: #f1ecda;
     padding: 0px;
+    font-family: Tahoma, Arial, Verdana, sans-serif, Lucida Sans;
 }
 .main-dialog label{
     color: #4b322e;
+    font-size: 12px;
 }
 .main-dialog .dialog-body{
-    margin: 20px;
+    /*margin: 20px;*/
     background: #e3dfd2;
     padding: 20px;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 .main-dialog .ui-dialog-titlebar{
     background-color: #ad1d28;
@@ -263,7 +324,7 @@ ul.list {
     height: 20px;
     /*content: "\f00d";*/
     background-image: url("../img/glyphicons-halflings.png");
-    background-position: -312px 5px;
+    background-position: -312px 3px;
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;

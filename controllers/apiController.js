@@ -4,7 +4,7 @@
 var repository = require("../data/repository");
 
 exports.getProducts = function(req, res){
-    var images = repository.getBowTies(function(data){
+    var images = repository.Product.getList(function(data){
         res.writeHead(200, {"Content-Type": "json"});
         res.write(JSON.stringify(data));
         res.end();

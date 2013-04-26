@@ -1,10 +1,12 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , repository = require('./data/repository')
+  , mongoStore = require('connect-mongo')(express);
 //
-
 var app = express();
+//var db = repository.getConnection();
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -19,6 +21,11 @@ app.configure(function(){
   app.use(app.router);
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.cookieParser());
+  app.use(express.session({
+      secret: 'your secret here',
+      store: new mongoStore(repository.getStoreConnectionArgs())
+  }));
 });
 
 app.configure('development', function(){
@@ -26,7 +33,6 @@ app.configure('development', function(){
 });
 
 routes.init(app);
-
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

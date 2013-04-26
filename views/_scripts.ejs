@@ -28,8 +28,8 @@
         </nav>
     </footer>
     <div class="dialog-login" style="display: none">
-        <div class="dialog-body">
-        <form novalidate="" id="gaia_loginform" action="#" method="post">
+        <div>
+        <form class="dialog-body" novalidate="" id="gaia_loginform" action="/auth/login" method="post">
             <div class="controls">
                 <label class="control-label" for="email"><strong>Имя пользователя</strong></label>
                 <input class="input-xlarge" type="email" spellcheck="false" name="Email" id="email" value="">
@@ -91,7 +91,7 @@
 //            closeText: 'fechar',
 //            show: 'fade',
 //            hide: 'fade',
-            width: "420px",
+            width: "350px",
             autoOpen: false,
             dialogClass: "main-dialog"
 //            buttons: {

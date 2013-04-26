@@ -85,9 +85,9 @@
         // The range of images around the current one to preload:
         preloadRange: 2,
         // Offset of image width to viewport width:
-        offsetWidth: 100,
+        offsetWidth: 10,
         // Offset of image height to viewport height:
-        offsetHeight: 200,
+        offsetHeight: 10,
         // Set to true to display images as canvas elements:
         canvas: false,
         // Shows the next image after the given time in ms (0 = disabled):
@@ -188,6 +188,7 @@
             modal.find('#descr').text(prod.descr);
             modal.find('#size').text(prod.size);
             modal.find('.modal-title').text(prod.title);
+            modal.find('.modal-raty').html(estim(index,prod.iRaty));
             //
             modal.find('.modal-download').prop(
                 'href',

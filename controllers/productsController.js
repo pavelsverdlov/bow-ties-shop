@@ -1,7 +1,8 @@
-var layout_data = require('../models/layout-viewmodel')
+var layout_data = require('../models/layout-viewmodel'),
+    views = require("../views");
 
 exports.index = function(req, res){
     var lvm =  layout_data.get();
     lvm.content = '';
-    res.render('../views/bow_ties.ejs',lvm);
+    res.render(views.paths.bow_ties,lvm);
 };

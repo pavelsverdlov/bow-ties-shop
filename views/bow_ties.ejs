@@ -1,5 +1,5 @@
 <% include _header.ejs %>
-
+<h2>Галстук-бабочки</h2>
 <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery">
 </div>
 <br/>
@@ -10,15 +10,17 @@
     <!--</div>-->
 
     <div class="modal-body">
-        <div class="modal-body-left">
+        <div class="modal-body-image">
             <span class="modal-title"></span><small id="idbow" class="modal-number">номер:</small>
             <div class="modal-image"></div>
         </div>
-        <div class="modal-body-right">
-            <div class="expander">
-                <div><span>Цена: </span><span class="modal-price"></span></div>
+        <div class="modal-body-content">
+            <div class="">
+                <div class="modal-raty"></div>
+                <div class="modal-price-block">Цена: <span class="modal-price"></span></div>
+                <div class="clear"></div>
                 <br/>
-                <em><span>Описание:</span></em>
+                <h4>Описание:</h4>
                 <div class="content">
                     <p id="descr"></p>
                     <ul>
