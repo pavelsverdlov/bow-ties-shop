@@ -1,15 +1,17 @@
-<% include ../_header.ejs %>
+<% include _header.ejs %>
 
 <div class="">
     <h2>Регистрация</h2>
     <div class="block-formsend">
-        <form class="form-horizontal" action="/auth/login"  method="post">
+        <%- content.status %>
+
+        <form class="form-horizontal" action="/auth/registration"  method="post">
             <fieldset>
                 <legend></legend>
                 <div class="control-group">
                     <label class="control-label" for="first-name">Фамилия*:</label>
                     <div class="controls">
-                        <input type="text" class="input-xlarge" id="first-name" name="first-name" placeholder=""/>
+                        <input type="text" class="input-xlarge" id="first-name" name="first-name" placeholder="Фамилия"/>
                         <!--value="<= content.user.firstName %>" >-->
                         <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
                     </div>
@@ -17,7 +19,7 @@
                 <div class="control-group">
                     <label class="control-label" for="last-name">Имя*:</label>
                     <div class="controls">
-                        <input type="text" class="input-xlarge" id="last-name" name="last-name" placeholder="">
+                        <input type="text" class="input-xlarge" id="last-name" name="last-name" placeholder="Имя">
                         <!--value="<= content.user.lastName %>" >-->
                         <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
                     </div>
@@ -25,22 +27,31 @@
                 <div class="control-group">
                     <label class="control-label" for="email">Email*:</label>
                     <div class="controls">
-                        <input type="text" class="input-xlarge" name="email" id="email" placeholder="">
+                        <input type="text" class="input-xlarge" name="email" id="email" placeholder="Email">
                         <!--value="<= content.user.email %>">-->
                         <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="phone">Телефон:</label>
+                    <label class="control-label" for="email">Пароль*:</label>
                     <div class="controls">
-                        <input type="text" class="input-xlarge" name="phone" id="phone" placeholder="">
+                        <input type="password"  class="input-xlarge" name="passwd" id="passwd"  placeholder="Пароль">
                         <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="comments">Комментарий:</label>
+                    <label class="control-label" for="email">Подтвердите пароль*:</label>
                     <div class="controls">
-                        <textarea class="input-xlarge" name="comments" id="comments" rows="3"></textarea>
+                        <input type="password"  class="input-xlarge" name="passwd-confirm" id="passwd-confirm"  placeholder="Пароль">
+                        <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="phone">Телефон:</label>
+                    <div class="controls">
+                        <input type="text" class="input-xlarge" name="phone" id="phone" placeholder="">
+                        <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
                     </div>
                 </div>
                 <div class="control-group">
@@ -53,19 +64,19 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">Отправить</button>
+                    <button type="submit" class="btn btn-primary">Зарегестрироваться</button>
                 </div>
             </fieldset>
         </form>
     </div>
     <div class="block-contacts">
-        <img src="http://cs410419.vk.me/v410419922/7c67/Bzq95W1ZXQI.jpg"/>
+        <img src="http://cs410419.vk.me/v410419922/7c24/UJhfmPF_-44.jpg"/>
     </div>
 </div>
-<% include ../_scripts.ejs %>
+<% include _scripts.ejs %>
 
 <script type="text/javascript">
     function init(){    }
 </script>
 
-<% include ../_footer.ejs %>
+<% include _footer.ejs %>

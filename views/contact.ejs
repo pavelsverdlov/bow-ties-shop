@@ -2,32 +2,51 @@
 
 <div class="">
     <h2>Контакты</h2>
-    <div class="block-formsend">
+</div>
+    <div class="span6">
+        <div class="well well-small">
+            <p>Если у Вас есть какие-то вопросы, комментарии, предложения или жалобы, пожалуйста, заполните форму обратной связи.</p>
+            <p>Мы приложим все усилия для того, чтобы ответить Вам максимально быстро.</p>
+        </div>
         <form class="form-horizontal" action="/contacts/new_order"  method="post">
             <fieldset>
-                <legend></legend>
+                <legend>Обратная связь</legend>
+                    <label class="control-group-header">Представьтесь, пожалуйста.</label>
                     <div class="control-group">
                         <label class="control-label" for="first-name">Фамилия*:</label>
                         <div class="controls">
-                            <input type="text" class="input-xlarge" id="first-name" name="first-name" placeholder=""/>
-                                   <!--value="<= content.user.firstName %>" >-->
+                            <% if(user){ %>
+                                <input type="text" class="input-xlarge" id="first-name" name="first-name" placeholder=""
+                                   value="<%= user.firstName %>" />
+                            <% } else { %>
+                                <input type="text" class="input-xlarge" id="first-name" name="first-name" placeholder=""/>
+                            <% } %>
                             <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="last-name">Имя*:</label>
                         <div class="controls">
-                            <input type="text" class="input-xlarge" id="last-name" name="last-name" placeholder="">
-                                   <!--value="<= content.user.lastName %>" >-->
+                            <% if(user){ %>
+                                <input type="text" class="input-xlarge" id="last-name" name="last-name" placeholder=""
+                                    value="<%= user.lastName %>" />
+                            <% } else { %>
+                                <input type="text" class="input-xlarge" id="last-name" name="last-name" placeholder="">
+                            <% } %>
                             <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="email">Email*:</label>
                         <div class="controls">
-                            <input type="text" class="input-xlarge" name="email" id="email" placeholder="">
-                                   <!--value="<= content.user.email %>">-->
-                            <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
+                            <% if(user){ %>
+                            <input type="text" class="input-xlarge" name="email" id="email" placeholder=""
+                                value="<%= user.email %>" />
+                            <% } else { %>
+                                <input type="text" class="input-xlarge" name="email" id="email" placeholder="">
+                            <% } %>
+
+                            <p class="help-block">Aдрес Вашей эл. почты для ответа.</p>
                         </div>
                     </div>
                     <div class="control-group">
@@ -38,29 +57,29 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="comments">Комментарий:</label>
+                        <label class="control-label" for="comments">Сообщение*:</label>
                         <div class="controls">
                             <textarea class="input-xlarge" name="comments" id="comments" rows="3"></textarea>
                         </div>
                     </div>
-                <div class="control-group">
-                    <label class="control-label" for="is-subscribe">Подписаться:</label>
-                    <div class="controls">
-                        <label class="checkbox">
-                            <input type="checkbox" name="is-subscribe" id="is-subscribe" value="option1">
-                            Хотите ли вы получать информацию о новинках и новостях с нашего сайта.
-                        </label>
-                    </div>
-                </div>
+                <!--<div class="control-group">-->
+                    <!--<label class="control-label" for="is-subscribe">Подписаться:</label>-->
+                    <!--<div class="controls">-->
+                        <!--<label class="checkbox">-->
+                            <!--<input type="checkbox" name="is-subscribe" id="is-subscribe" value="option1">-->
+                            <!--Хотите ли вы получать информацию о новинках и новостях с нашего сайта.-->
+                        <!--</label>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Отправить</button>
                 </div>
             </fieldset>
         </form>
     </div>
-    <div class="block-contacts">
+    <div class="span5">
         <address>
-            <span>Украина, Одесса</span>
+            <span><span class="company-name">Bow Ties Shop</span> находиться в Украине, город Одесса.</span>
         </address>
         <address>
             <strong>Почта:</strong>
@@ -72,7 +91,7 @@
         </address>
         <img src="http://cs410419.vk.me/v410419922/7c67/Bzq95W1ZXQI.jpg"/>
     </div>
-</div>
+
 <% include _scripts.ejs %>
 
     <script type="text/javascript">

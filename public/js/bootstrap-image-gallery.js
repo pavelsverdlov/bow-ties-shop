@@ -47,7 +47,7 @@
     }
 
     // Load images via flickr for demonstration purposes:
-    $.ajax({ url: 'api/getProducts', dataType: 'json'}).done(function (data) {
+    $.ajax({ url: '/api/getProducts/', dataType: 'json'}).done(function (data) {
         var product = $('#gallery');
         var index = 1;
         $.each(data, function (index, photo) {
@@ -56,13 +56,13 @@
                     // .append('<div class="label label-info price">€ 10,<sup>99</sup></div>')
                     .append($('<img>').prop('src', photo.imgPath))//
                     .prop('href', photo.imgPath)
-                    .prop('title', photo.id)
+                    .prop('title', photo._id)
             )
                 .append('<div class="caption"><p>' + photo.title+'</p>'+estim(index, photo.iRaty)+
                 '<span class="label-info price pull-right">'+photo.price+' грн.</span></div>')
                 .appendTo(product);
             ++index;
-            products[photo.id] = photo;
+            products[photo._id] = photo;
         });
     });
 
@@ -183,7 +183,7 @@
             window.setTimeout(function () { oldImg.remove(); }, 3000)
             //add information
             var prod = products[this.$links[index].title];
-            modal.find('.modal-number').text(prod.id);
+            modal.find('.modal-number').text(prod._id);
             modal.find('.modal-price').text(prod.price + ' грн.');
             modal.find('#descr').text(prod.descr);
             modal.find('#size').text(prod.size);

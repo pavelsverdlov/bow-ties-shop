@@ -29,10 +29,10 @@
     </footer>
     <div class="dialog-login" style="display: none">
         <div>
-        <form class="dialog-body" novalidate="" id="gaia_loginform" action="/auth/login" method="post">
+        <form class="dialog-body" novalidate="" id="gaia_loginform" action="<%= login.name %>" method="post">
             <div class="controls">
-                <label class="control-label" for="email"><strong>Имя пользователя</strong></label>
-                <input class="input-xlarge" type="email" spellcheck="false" name="Email" id="email" value="">
+                <label class="control-label" for="email"><strong>Почта</strong></label>
+                <input class="input-xlarge" type="email" spellcheck="false" name="email" id="email" value="">
                 <p class="help-block"></p>
             </div>
             <div class="controls">

@@ -4,33 +4,33 @@ var models = require('../models'),
     views = require("../views");
 
 exports.index = function(req, res){
-    var lvm =  models.layout.get();
+    var lvm =  models.layout.get(req);
     lvm.content = '';
     res.render(views.paths.contact,lvm);
 };
 
 exports.new_order = function(req, res){
-    var product = repository.Product.getById(req.params.idbow);
-    var lvm = models.layout.get();
+    var product = repository.product.getById(req.params.idbow);
+    var lvm = models.layout.get(req);
     lvm.content = lvm.content = {
         'status': {'text':'','type':''},
         'productId': product.id,
         'productImg': product.imgPath,
-        'user':models.user.get()
+        'user':lvm.user ? lvm.user : models.user.get()
     };
     res.render(views.paths.new_order,lvm);
 };
 
 exports.new_order_POST = function(req, res){
     var orderId = req.param('order-number', null);
-    var product = repository.Product.getById(orderId);
+    var product = repository.product.getById(orderId);
     var user = models.user.createModel(
         req.param('first-name', null),
         req.param('last-name', null),
         req.param('email', null)
     );
     emailcontroller.sendNewOrder(product,user,function(error, response){
-        var lvm = models.layout.get();
+        var lvm = models.layout.get(req);
         lvm.content = {
             'status': '',
             'productId': product.id,

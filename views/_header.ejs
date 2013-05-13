@@ -19,7 +19,7 @@
                 <!--<span class="icon-bar"></span>-->
                 <!--<span class="icon-bar"></span>-->
             <!--</button>-->
-            <a class="brand" href="/home">
+            <a class="brand" href="/home/">
                 <%= title %> <img src="/img/bow-logo.png" width="50px"/> Shop
             </a>
             <div class="nav-collapse collapse">
@@ -31,8 +31,28 @@
             </div>
             <div class="login">
                 <ul class="nav">
-                    <li><a id="login"><i class="icon-user"></i><span>Войти</span></a></li>
+                    <% if(user){ %>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-user"></i>
+                                <%= user.firstName %> <%= user.lastName %> <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <% for(var i=0; i<user_menu.length; i++) { %>
+                                    <li><a href="<%= menu[i].link %>"><i class="icon-wrench"></i><span><%= menu[i].name %></span></a></li>
+                                <% } %>
+                                <!--<li><a href="../auth/setting/<%= user._id %>/"><i class="icon-wrench"></i><span> Настройки</span></a></li>-->
+                                <!--<li><a href="../auth/setting/<%= user._id %>/"><i class="icon-shopping-cart"></i><span> Покупки</span></a></li>-->
+                                <li class="divider"></li>
+                                <li><a href="<%= logout.link %>"><i class="icon-off"></i><%= logout.name %></a></li>
+                            </ul>
+                        </li>
+                    <% } else { %>
+                        <li><a id="login"><i class="icon-user"></i><span><%= login.name %></span></a></li>
+                        <li><a id="reg" href="<%= registration.link %>"><i class="icon-pencil"></i><span><%= registration.name %></span></a></li>
+                    <% } %>
                 </ul>
+
             </div>
         </div>
     </div>

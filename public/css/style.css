@@ -19,7 +19,8 @@ body {
     /*background: #123344;*/
     /*font-size: 28px;*/
     /*line-height: 20px;*/
-    font-size: 12px;
+    font-size: 0.85em;
+    /*font-size: 12px;*/
     font-family: Tahoma, Arial, Verdana, sans-serif, Lucida Sans;
     font-weight: normal;
     color: #4b322e;
@@ -37,11 +38,25 @@ body {
 .clear{
     clear: both;
 }
+.company-name{
+    font-size: 16px;
+    font-family: 'Lobster',cursive;
+    font-weight: normal;
+    line-height: 20px;
+    color: inherit;
+    text-rendering: optimizelegibility;
+}
+legend, label, .help-block, .input-file {
+    color: #4b322e;
+}
 h4{
     /*font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;*/
 }
 hr{
     border-top: 1px solid #ad1d28;
+}
+.well{
+    background-color: transparent;
 }
 legend{
     font-style: italic;
@@ -54,11 +69,10 @@ form legend{
     margin-left: 40px;
     font-weight: bold;
 }
-form label{
+/*form label{*/
     /*font-size: 16px;*/
-    color: #4b322e;
-
-}
+    /*color: #4b322e;*/
+/*}*/
 a {
     color: #ad1d28;
 }
@@ -108,6 +122,9 @@ a:hover, a:focus {
     position: absolute;
    /*float: left;*/
 
+}
+.control-group-header{
+    margin-left: 40px;
 }
 /*
     product item

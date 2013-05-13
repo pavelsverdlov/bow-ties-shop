@@ -1,6 +1,9 @@
 var BowTie = function(_id, _title,_imgPath, _iraty, _price, _descr, _size){
 
-    this.id = _id,
+    this._id = _id,
+    this.getId = function(){
+        return this._id.toHexString();
+    };
     this.title = _title;
     this.imgPath = _imgPath;
     this.iRaty = _iraty;
@@ -11,5 +14,5 @@ var BowTie = function(_id, _title,_imgPath, _iraty, _price, _descr, _size){
 
 exports.createBowTie = function(_title,_imgPath, _iraty, _price){ return new BowTie('',_title,_imgPath, _iraty, _price, '')};
 exports.createBowTie = function(dbModel){
-    return new BowTie(dbModel._id.toHexString(),dbModel.name,dbModel.imgPath, dbModel.rating, dbModel.price, dbModel.descr, dbModel.size)
+    return new BowTie(dbModel._id,dbModel.name,dbModel.imgPath, dbModel.rating, dbModel.price, dbModel.descr, dbModel.size)
 };

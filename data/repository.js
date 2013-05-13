@@ -1,34 +1,38 @@
-var mongoClient = require('mongodb').MongoClient;
+var mongoClient = require('mongodb').MongoClient,
+    ObjectID = require('mongodb').ObjectID,
+    Binary = require('mongodb').Binary,
+    GridStore = require('mongodb').GridStore,
+    Grid = require('mongodb').Grid,
+    Code = require('mongodb').Code,
+    BSON = require('mongodb').pure().BSON,
+    crypto = require('crypto');
 
 var user ='bts_mdbd',
     pass='jltccrfzblacc20',
     url = 'mongodb://bts_mdbd:jltccrfzblacc20@dharma.mongohq.com:10092/bow-ties-shop';
 
 //var exec = require("child_process").exec;
-var model = require("../models");
+var models = require("../models");
 var path = '/img/products/';
 
 var products =[],
     users =[];
-/*
+
 mongoClient.connect(url, function(err, db) {
     if(err) throw err;
     console.log("connected");
     var collection = db.collection('products');
-    collection.find({}, {limit:10}).toArray(function(err, docs) {
-//        console.dir(docs);
-//        products = docs;
+    collection.find({}, {limit:0}).toArray(function(err, docs) {
         for(var i=0; i < docs.length; ++i){
-            products.push(model.bowtie.createBowTie(docs[i]));
+            products.push(models.bowtie.createBowTie(docs[i]));
         }
     });
-    db.collection('users').find({}, {limit:10}).toArray(function(err, docs) {
+    db.collection('users').find({}, {limit:0}).toArray(function(err, docs) {
         for(var i=0; i < docs.length; ++i){
-            users.push(model.user.createModel(docs[i]));
+            users.push(models.user.createModel(docs[i]));
         }
     });
 });
-*/
 
 exports.getConnection = function(){
     //return url;//
@@ -75,25 +79,25 @@ exports.getBowTies = function(func){
 */
 //=================================================
 
-exports.Product =  {
+exports.product =  {
     name: 'products',
 
     getById: function(id){
         for(var i=0; i < products.length; ++i){
-            if(id === products[i].id){
+            if(id === products[i].getId()){
                 return products[i];
             }
         }
     },
     getList: function(func){
-        if(products.length){
-            func(products);
-            return;
-        }
-        find(name, function(err, docs){
+
+        find(this.name, function(err, docs){
             if(err) throw err;
-            for(var i=0; i < docs.length; ++i){
-                products.push(model.bowtie.createBowTie(docs[i]));
+            if(products.length){
+                func(products);
+                return;
+            }for(var i=0; i < docs.length; ++i){
+                products.push(models.bowtie.createBowTie(docs[i]));
             }
             func(products);
         });
@@ -102,22 +106,56 @@ exports.Product =  {
 
     }
 };
-exports.User = {
+exports.user = {
     name: 'users',
-
-    findById: function(id, callback){
-        for(var i=0; i < users.length; ++i){
-            if(id === users[i].id){
-                return users[i];
+    find: function(passwd,email,callback){
+        if(users.length){
+            for(var i=0; i < users.length; ++i){
+                if(crypt.encrypt(passwd,users[i].salt) === users[i].hashed_password && email == users[i].email){
+                    callback(null,users[i]);
+                    return;
+                }
             }
+            callback('user was not found',null);
+        }else{
+            var col_name = this.name;
+            connect('',function(db){
+                db.collection(col_name).find( {email: email }, {limit:1}).toArray(
+                    function(err, docs) {
+                        if(docs.length){
+                            var user = models.user.createModel(docs[0]);
+                            if(crypt.encrypt(passwd,user.salt) === user.hashed_password()){
+                                callback(null,user);
+                            }
+                        }else{
+                            callback(err,null);
+                        }
+                    }
+                );
+            });
         }
+    },
+    findById: function(id,callback){
+        var col_name = this.name;
+        connect('',function(db){
+            db.collection(col_name).find( {_id: ObjectID(id)}, {limit:1}).toArray(
+                function(err, docs) {
+                    if(docs.length){
+                        callback(err,models.user.createModel(docs[0]));
+                    }else{
+                        callback(err,null);
+                    }
+                }
+            );
+
+        });
     },
     getList: function(func){
         if(users.length){
             func(users);
             return;
         }
-        find(name, function(err, docs){
+        find(this.name, function(err, docs){
             if(err) throw err;
             for(var i=0; i < docs.length; ++i){
                 users.push(model.user.createModel(docs[i]));
@@ -125,24 +163,37 @@ exports.User = {
             func(users);
         });
     },
-    save: function(model){
-        save(name,model,function(err, i){
-
+    save: function(model,callback){
+        model._id  = new ObjectID();
+        model.idate_reg = parseInt(+(new Date()));
+        model.salt = crypt.makeSalt();
+        model.hashed_password = crypt.encrypt(model.passwd,model.salt);
+        save(this.name,model,function(err, i){
+            callback(err, i, model);
         });
+    },
+    confirmAuth: function(id,callback){
+        update(this.name, {_id:ObjectID(id)},{$set: {isConfirm:true}}, {safe:false});
     }
 };
 
+function update(collection_name, keys, fields, safe, callback){
+    connect(collection_name,function(db){
+        db.collection(collection_name)
+            .update(keys, fields, safe, callback || function(){});
+    });
+};
 function save(collection_name, model, callback){
     connect(collection_name,function(db){
         db.collection(collection_name)
-            .save(JSON.stringify(model),{safe:true}, callback);
+            .save(model,{safe:true},  callback || function(){});//JSON.stringify(
     });
 };
 
 function find(collection_name, callback){
     connect(collection_name,function(db){
         db.collection(collection_name)
-            .find({}, {limit:10}).toArray(callback);
+            .find({}, {limit:10}).toArray( callback || function(){});
     });
 };
 
@@ -153,22 +204,19 @@ function connect(collection_name,action){
         }else{
             action(db);
         }
-        /*
-        console.log("connected");
-        db.collection(collection_name).find({}, {limit:10}).toArray(function(err, docs) {
-    //        console.dir(docs);
-    //        products = docs;
-            for(var i=0; i < docs.length; ++i){
-                products.push(model.bowtie.createBowTie(docs[i]));
-            }
-        });
-        db.collection('users').find({}, {limit:10}).toArray(function(err, docs) {
-            for(var i=0; i < docs.length; ++i){
-                users.push(model.user.createModel(docs[i]));
-            }
-        });*/
+       // mongoClient.close();
     });
 };
+
+var crypt = {
+    encrypt:function(password,salt) {
+        return crypto.createHmac('sha1', salt).update(password).digest('hex');
+    },
+    makeSalt: function() {
+        return Math.round((new Date().valueOf() * Math.random())) + '';
+    }
+};
+
 /*
     Mongo Console
 *   mongo dharma.mongohq.com:10092/bow-ties-shop -u <user> -p<password>

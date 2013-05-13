@@ -7,9 +7,17 @@ exports.paths = {
 
     bow_ties: '../views/bow_ties.ejs',
 
-    login: '../views/auth/login.ejs'
+    registration: '../views/registration.ejs'
 };
 
 exports.actions={
-    login: '/auth/login'
+    home: '/home/',
+    about: '/about/',
+    bow_ties: '/bow-ties/',
+    contacts: '/contacts/',
+
+    registration: '/auth/registration/',
+    login: '/auth/login/',
+    logout: '/auth/logout/',
+    setting: '/auth/setting/'
 };
