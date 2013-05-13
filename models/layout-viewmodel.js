@@ -27,16 +27,7 @@ var LayoutViewModel = function(_title,_menu, _socials){
 
 exports.get = function(req){
     var host = '..';
-    if(req){
-        if(req.session.is_auth){
-            lvm.user = req.session.user;
-            lvm.user_menu =[
-                {"name":"Настройки", "link": host + '/auth/setting/'+lvm.user.id+'/'},
-                {"name":"Покупки", "link": host +'/auth/setting/'+lvm.user.id+'/'}
-            ];
-        }
-        host = 'http://' + req.get('host');
-    }
+
     var lvm = new LayoutViewModel(
         'Bow Ties',
         [   {"name":"Главная", "link": host +"/home/"},
@@ -49,8 +40,16 @@ exports.get = function(req){
         ]
     );
 
-
-
+    if(req){
+        if(req.session.is_auth){
+            lvm.user = req.session.user;
+            lvm.user_menu =[
+                {"name":"Настройки", "link": host + '/auth/setting/'+lvm.user.id+'/'},
+                {"name":"Покупки", "link": host +'/auth/setting/'+lvm.user.id+'/'}
+            ];
+        }
+        host = 'http://' + req.get('host');
+    }
 
     lvm.logout = {"name":"Выйти", "link": host + '/auth/logout/'};
 
