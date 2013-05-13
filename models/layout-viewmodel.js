@@ -13,6 +13,7 @@ var LayoutViewModel = function(_title,_menu, _socials){
     this.logout =null;
     this.registration = null;
     this.login = null;
+    this.new_order = null;
 
 //    this.getJson = function() {
 //        var json = {
@@ -56,6 +57,8 @@ exports.get = function(req){
     lvm.registration = {"name":"Регистрация", "link": host + '/auth/registration/'};
 
     lvm.login = {"name":"Войти", "link": '/auth/login/'};
+
+    lvm.new_order = {"name":"Оформить заказ", "link": '/contacts/new_order/'};
 
     return lvm;
 }

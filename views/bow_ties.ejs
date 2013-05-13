@@ -40,7 +40,7 @@
     <div class="modal-footer">
         <a id="neworder" class="btn btn-inverse modal-play" style="float: left">
             <i class="icon-play icon-shopping-cart"></i>
-            <span>Оформить заказ</span>
+            <span><%= new_order.name %></span>
         </a>
         <!--<a class="btn modal-download" target="_blank">-->
             <!--<i class="icon-download"></i>-->
@@ -71,7 +71,7 @@
 //        $('#raty img').mouseover(function(){ );
 //        }).(function(){  });
         $('#neworder').click(function(){
-            $(this).attr('href','/contacts/new_order/' + $('#idbow').text());
+            $(this).attr('href','<%= new_order.link %>' + $('#idbow').text()+ '/');
         });
         $('div.estimate img').click(function(){
 
