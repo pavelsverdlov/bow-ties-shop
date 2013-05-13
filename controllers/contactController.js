@@ -14,7 +14,7 @@ exports.new_order = function(req, res){
     var lvm = models.layout.get(req);
     lvm.content = lvm.content = {
         'status': {'text':'','type':''},
-        'productId': product.id,
+        'productId': product._id,
         'productImg': product.imgPath,
         'user':lvm.user ? lvm.user : models.user.get()
     };
@@ -33,7 +33,7 @@ exports.new_order_POST = function(req, res){
         var lvm = models.layout.get(req);
         lvm.content = {
             'status': '',
-            'productId': product.id,
+            'productId': product._id,
             'productImg': product.imgPath,
             'user': user
         };

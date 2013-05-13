@@ -29,9 +29,9 @@ body {
     background-color: #e3dfd2;
     /*background-image: -webkit-gradient(radial,center center,0,center center,460,from(#12a5b0),to(#0f8790));*/
     background-image: -webkit-radial-gradient(circle,#f1ecda,#f1ecda);
-    /*background-image: -moz-radial-gradient(circle,#12a5b0,#0f8790);*/
-    /*background-image: -o-radial-gradient(circle,#12a5b0,#0f8790);*/
-    /*background-repeat: no-repeat;*/
+    background-image: -moz-radial-gradient(circle,#f1ecda,#f1ecda);
+    background-image: -o-radial-gradient(circle,#f1ecda,#f1ecda);
+    background-repeat: no-repeat;
     /*padding: 0px 20px 20px 20px;*/
     /*border: 1px solid #9786ab;*/
 }
