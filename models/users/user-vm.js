@@ -34,6 +34,7 @@ exports.createModel = function(dbModel){
     user.hashed_password = dbModel.hashed_password;
     user.idate_reg = parseInt(dbModel.idate_reg);
     user.isConfirm = dbModel.isConfirm;
+    user.orders = dbModel.orders;
 
     return user;
 };

@@ -1,0 +1,32 @@
+<% include _header.ejs %>
+
+<div class="row-fluid">
+    <ul class="thumbnails">
+        <% for(var i=0; i<content.orders.length; i++) { %>
+        <li class="span4">
+            <div class="thumbnail">
+                <img data-src="holder.js/300x200" alt="" style="width: 300px; height: 200px;"
+                     src="<%= content.orders[i].imgPath %>">
+                <div class="caption">
+                    <h3><%= content.orders[i].title %> - Цена: <%= content.orders[i].descr %></h3>
+                    <h4>Описание:</h4>
+                    <p><%= content.orders[i].descr %></p>
+                    <ul>
+                        <li>Обхват шеи: до <span id="size"><%= content.orders[i].size %></span> см</li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <% } %>
+    </ul>
+</div>
+
+<% include _scripts.ejs %>
+
+<script type="text/javascript">
+    function init(){
+
+    };
+</script>
+
+<% include _footer.ejs %>

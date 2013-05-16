@@ -1,18 +1,19 @@
 <% include _header.ejs %>
 
+<%- content.status %>
 <form class="form-horizontal" action="<%= new_order.link %>"  method="post">
     <fieldset>
         <legend>Оформление заказа</legend>
         <div style="float: left">
-        <div class="control-group <%= content.status.type %>">
-            <div class="controls">
-                <span class="help-block"><%= content.status.text %></span>
-            </div>
-        </div>
+        <!--<div class="control-group <%= content.status.type %>">-->
+            <!--<div class="controls">-->
+               <!--<span class="help-block"><%= content.status.text %></span>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="control-group">
             <label class="control-label" for="first-name">Фамилия*:</label>
             <div class="controls">
-                <input type="text" class="input-xlarge" id="first-name" name="first-name" placeholder=""
+                <input type="text" class="input-xlarge uneditable-input" id="first-name" name="first-name" placeholder=""
                        value="<%= content.user.firstName %>" >
                 <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
             </div>
@@ -51,6 +52,7 @@
             <img src="<%= content.productImg %>" style="border-radius: 7px;width: 50%"/>
         </div>
         <div style="clear: both"/>
+        <% if(!user){ %>
         <div class="control-group">
             <label class="control-label" for="is-subscribe">Подписаться:</label>
             <div class="controls">
@@ -60,6 +62,7 @@
                 </label>
             </div>
         </div>
+        <% } %>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">Отправить заказ</button>
         </div>

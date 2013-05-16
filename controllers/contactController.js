@@ -13,7 +13,7 @@ exports.new_order = function(req, res){
     var product = repository.product.getById(req.params.idbow);
     var lvm = models.layout.get(req);
     lvm.content = lvm.content = {
-        'status': {'text':'','type':''},
+        'status': '',
         'productId': product._id,
         'productImg': product.imgPath,
         'user':lvm.user ? lvm.user : models.user.get()
@@ -24,11 +24,14 @@ exports.new_order = function(req, res){
 exports.new_order_POST = function(req, res){
     var orderId = req.param('order-number', null);
     var product = repository.product.getById(orderId);
-    var user = models.user.createModel(
-        req.param('first-name', null),
-        req.param('last-name', null),
-        req.param('email', null)
-    );
+
+    var user = req.session.is_auth ? req.session.user :
+        models.user.createModel(
+            req.param('first-name', null),
+            req.param('last-name', null),
+            req.param('email', null)
+        );
+
     emailcontroller.sendNewOrder(product,user,function(error, response){
         var lvm = models.layout.get(req);
         lvm.content = {
@@ -38,12 +41,11 @@ exports.new_order_POST = function(req, res){
             'user': user
         };
         if(error){
-            lvm.content.status = {
-                'text': 'Произошла ошибка при отправке сообщения. Пожалуйста, повторите попытку.',
-                'type': 'error'};
+            lvm.content.status = '<div class="alert alert-error">Произошла ошибка при отправке сообщения. Пожалуйста, повторите попытку.</div>';
             console.log("Message sent: " + error);
         }else{
-            lvm.content.status = {'text': 'Сообщение было успешно отправленно.', 'type': 'success'};
+            lvm.content.status = '<div class="alert alert-success">Сообщение было успешно отправленно.</div>';
+            repository.user.addOrderAsync(user,orderId);
             console.log("Message sent: " + response.message);
         }
         res.render(views.paths.new_order,lvm);

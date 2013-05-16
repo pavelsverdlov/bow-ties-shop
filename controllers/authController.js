@@ -108,10 +108,6 @@ exports.logout = function(req, res) {// Удалить сессию
     res.redirect(views.actions.home);
 };
 
-exports.setting = function(req,res){
-    res.redirect(views.actions.home);
-};
-
 //
 
 function generate_url_confirm_reg(id,date){

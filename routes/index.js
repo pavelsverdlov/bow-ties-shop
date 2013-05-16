@@ -4,6 +4,7 @@ var views = require("../views"),
     contacts = require('../controllers/contactController'),
     products = require('../controllers/productsController'),
     about = require('../controllers/aboutController'),
+    user = require('../controllers/userController'),
     auth = require('../controllers/authController'),
     api = require('../controllers/apiController');
 
@@ -16,7 +17,9 @@ exports.init = function(app){
     app.post(views.actions.registration, auth.registration_POST);
     //app.del
     app.get('/auth/logout/', auth.checkLogin, auth.logout);
-    app.get('/auth/setting/:id', auth.checkLogin, auth.setting);
+
+    app.get('/user/orders/:id/', auth.checkLogin, user.orders);
+    app.get('/user/settings/:id/', auth.checkLogin, user.settings);
 
     app.get('/', auth.checkLogin, home.index);
     app.get('/home/', auth.checkLogin, home.index);

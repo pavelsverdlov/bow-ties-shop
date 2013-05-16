@@ -31,8 +31,8 @@ exports.get = function(req){
 
     var lvm = new LayoutViewModel(
         'Bow Ties',
-        [   {"name":"Главная", "link": host +"/home/"},
-            {"name":"О нас", "link": host +"/about/"},
+        [   {"name":"Главная", "link": host +"/"},
+//            {"name":"О нас", "link": host +"/about/"},
             {"name":"Ассортимент", "link": host +"/bow-ties/"},
             {"name":"Контакты", "link": host +"/contacts/"}
         ],
@@ -45,8 +45,8 @@ exports.get = function(req){
         if(req.session.is_auth){
             lvm.user = req.session.user;
             lvm.user_menu =[
-                {"name":"Настройки", "link": host + '/auth/setting/'+lvm.user.id+'/'},
-                {"name":"Покупки", "link": host +'/auth/setting/'+lvm.user.id+'/'}
+                {"name":"Настройки", icon: 'icon-wrench', "link": host + '/user/setting/'+lvm.user.id+'/'},
+                {"name":"Покупки",  icon: 'icon-shopping-cart', "link": host +'/user/orders/'+lvm.user.id+'/'}
             ];
         }
 
@@ -59,6 +59,8 @@ exports.get = function(req){
     lvm.login = {"name":"Войти", "link": '/auth/login/'};
 
     lvm.new_order = {"name":"Оформить заказ", "link": '/contacts/new_order/'};
+
+  //  lvm.contacts =  {"name":"", "link": '/contacts/'};
 
     return lvm;
 }

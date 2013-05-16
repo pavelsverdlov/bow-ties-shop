@@ -27,11 +27,11 @@ mongoClient.connect(url, function(err, db) {
             products.push(models.bowtie.createBowTie(docs[i]));
         }
     });
-    db.collection('users').find({}, {limit:0}).toArray(function(err, docs) {
-        for(var i=0; i < docs.length; ++i){
-            users.push(models.user.createModel(docs[i]));
-        }
-    });
+//    db.collection('users').find({}, {limit:0}).toArray(function(err, docs) {
+//        for(var i=0; i < docs.length; ++i){
+//            users.push(models.user.createModel(docs[i]));
+//        }
+//    });
 });
 
 exports.getConnection = function(){
@@ -109,23 +109,23 @@ exports.product =  {
 exports.user = {
     name: 'users',
     find: function(passwd,email,callback){
-        if(users.length){
-            for(var i=0; i < users.length; ++i){
-                if(crypt.encrypt(passwd,users[i].salt) === users[i].hashed_password && email == users[i].email){
-                    callback(null,users[i]);
-                    return;
-                }
-            }
-            callback('user was not found',null);
-        }else{
+//        if(users.length){
+//            for(var i=0; i < users.length; ++i){
+//                if(crypt.encrypt(passwd,users[i].salt) === users[i].hashed_password && email == users[i].email){
+//                    callback(null,users[i]);
+//                    return;
+//                }
+//            }
+//            callback('user was not found',null);
+//        }else{
             var col_name = this.name;
             connect('',function(db){
                 db.collection(col_name).find( {email: email }, {limit:1}).toArray(
                     function(err, docs) {
                         if(docs.length){
-                            var user = models.user.createModel(docs[0]);
-                            if(crypt.encrypt(passwd,user.salt) === user.hashed_password()){
-                                callback(null,user);
+                            var _user = models.user.createModel(docs[0]);
+                            if(crypt.encrypt(passwd,_user.salt) === _user.hashed_password){
+                                callback(null,_user);
                             }
                         }else{
                             callback(err,null);
@@ -133,7 +133,7 @@ exports.user = {
                     }
                 );
             });
-        }
+//        }
     },
     findById: function(id,callback){
         var col_name = this.name;
@@ -151,10 +151,10 @@ exports.user = {
         });
     },
     getList: function(func){
-        if(users.length){
-            func(users);
-            return;
-        }
+//        if(users.length){
+//            func(users);
+//            return;
+//        }
         find(this.name, function(err, docs){
             if(err) throw err;
             for(var i=0; i < docs.length; ++i){
@@ -174,6 +174,10 @@ exports.user = {
     },
     confirmAuth: function(id,callback){
         update(this.name, {_id:ObjectID(id)},{$set: {isConfirm:true}}, {safe:false});
+    },
+    addOrderAsync: function(_user,id_product){
+        _user.orders.push(id_product);
+        update(this.name, {_id:ObjectID(_user._id)},{$set: {orders: _user.orders}}, {safe:false});
     }
 };
 

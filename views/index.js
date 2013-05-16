@@ -11,7 +11,7 @@ exports.paths = {
 };
 
 exports.actions={
-    home: '/home/',
+    home: '/',
     about: '/about/',
     bow_ties: '/bow-ties/',
     contacts: '/contacts/',
