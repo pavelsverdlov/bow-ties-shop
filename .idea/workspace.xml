@@ -6,8 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37c578a9-0bd4-44c1-b540-ba7a782f140a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/userController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/user_orders.ejs" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/products/5156e8408782bbb4250006f7.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/products/515706aab810d3967600078e.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/products/IMG_4282.png" afterPath="" />
@@ -24,17 +22,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/products/db_file_img_4365_234x234.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/products/db_file_img_4370_234x234.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/authController.js" afterPath="$PROJECT_DIR$/controllers/authController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/contactController.js" afterPath="$PROJECT_DIR$/controllers/contactController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/repository.js" afterPath="$PROJECT_DIR$/data/repository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/layout-viewmodel.js" afterPath="$PROJECT_DIR$/models/layout-viewmodel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/users/user-vm.js" afterPath="$PROJECT_DIR$/models/users/user-vm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/_header.ejs" afterPath="$PROJECT_DIR$/views/_header.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home.ejs" afterPath="$PROJECT_DIR$/views/home.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.js" afterPath="$PROJECT_DIR$/views/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/new_order.ejs" afterPath="$PROJECT_DIR$/views/new_order.ejs" />
     </list>
     <ignored path="bow-ties-shop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,16 +54,16 @@
       <file leaf-file-name="user_orders.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/user_orders.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="24" selection-start="614" selection-end="614" vertical-scroll-proportion="0.0">
+            <state line="13" column="24" selection-start="614" selection-end="614" vertical-scroll-proportion="-8.821428">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="18" selection-start="976" selection-end="980" vertical-scroll-proportion="0.0">
+            <state line="13" column="19" selection-start="605" selection-end="605" vertical-scroll-proportion="0.23488773">
               <folding />
             </state>
           </provider>
@@ -84,7 +72,7 @@
       <file leaf-file-name="userController.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/userController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="32" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
+            <state line="6" column="37" selection-start="154" selection-end="188" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -108,10 +96,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new_order.ejs" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="new_order.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/new_order.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="71" selection-start="677" selection-end="677" vertical-scroll-proportion="0.021764033">
+            <state line="15" column="71" selection-start="677" selection-end="677" vertical-scroll-proportion="-0.6785714">
               <folding />
             </state>
           </provider>
@@ -168,9 +156,9 @@
         <option value="$PROJECT_DIR$/views/user_orders.ejs" />
         <option value="$PROJECT_DIR$/controllers/authController.js" />
         <option value="$PROJECT_DIR$/controllers/userController.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/models/layout-viewmodel.js" />
         <option value="$PROJECT_DIR$/views/new_order.ejs" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
       </list>
     </option>
   </component>
@@ -264,6 +252,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bow-ties-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bow-ties-shop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -418,13 +420,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14590164" sideWeight="0.37419355" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14590164" sideWeight="0.65268815" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34659687" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14590164" sideWeight="0.6537634" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34623656" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2924731" sideWeight="0.9989071" order="2" side_tool="false" content_ui="tabs" />
@@ -493,7 +495,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="142" />
+      <option name="time" value="145" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -504,12 +506,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/contactController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1831" selection-end="1831" vertical-scroll-proportion="0.0" />
+        <state line="50" column="0" selection-start="1831" selection-end="1831" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/registration.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="130" selection-end="130" vertical-scroll-proportion="-3.75" />
+        <state line="6" column="0" selection-start="130" selection-end="130" vertical-scroll-proportion="-3.75">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/users/user-vm.js">
@@ -519,7 +525,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/about.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="1521" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="1521" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/_header.ejs">
@@ -538,41 +546,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/apiController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="167" selection-end="208" vertical-scroll-proportion="0.105438404" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user_orders.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="24" selection-start="614" selection-end="614" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/authController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="32" selection-start="113" selection-end="141" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/userController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="32" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="18" selection-start="976" selection-end="980" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/layout-viewmodel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="61" selection-start="1377" selection-end="1377" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="5" column="0" selection-start="167" selection-end="208" vertical-scroll-proportion="0.105438404">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1367609792371" expanded="true" signature="540:761" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -592,7 +570,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/new_order.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="71" selection-start="677" selection-end="677" vertical-scroll-proportion="0.021764033">
+        <state line="15" column="71" selection-start="677" selection-end="677" vertical-scroll-proportion="-0.6785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/authController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="25" selection-start="489" selection-end="489" vertical-scroll-proportion="0.23536035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/layout-viewmodel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="61" selection-start="1377" selection-end="1377" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/userController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="37" selection-start="154" selection-end="188" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/user_orders.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="24" selection-start="614" selection-end="614" vertical-scroll-proportion="-8.821428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="19" selection-start="605" selection-end="605" vertical-scroll-proportion="0.23488773">
           <folding />
         </state>
       </provider>

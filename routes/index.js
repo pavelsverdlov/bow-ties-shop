@@ -9,6 +9,14 @@ var views = require("../views"),
     api = require('../controllers/apiController');
 
 exports.init = function(app){
+    app.get(/[^/]$/, function(req, res, next){
+        if(/\.(png|css|js|)/.test(req.url)){
+            next();
+        }else{
+            res.redirect(req.url + '/');
+        }
+    });
+
     app.get(views.actions.login, auth.login);
     app.post(views.actions.login, auth.login_post);
     app.get('/auth/confirm/:id/:date', auth.confirm_registr);
