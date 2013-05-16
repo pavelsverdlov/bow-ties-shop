@@ -1,0 +1,11 @@
+#It is information for search engines.
+
+User-agent: *
+Disallow: /css/
+Disallow: /js/
+Disallow: /img/
+Disallow: /user/
+
+Host: bow-ties.od.ua
+
+Sitemap: http://bow-ties.od.ua/sitemap.xml

@@ -49,6 +49,9 @@ body {
 legend, label, .help-block, .input-file {
     color: #4b322e;
 }
+h1{
+    font-size: 27px;
+}
 h4{
     /*font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;*/
 }
@@ -275,13 +278,6 @@ navbar-fixed-top{
     padding: 5px 20px 0px 20px;
     /*font-size: 18px;*/
     margin: 0;
-}
-.login{
-    float: right;
-    /*margin: 15px 0px 0px 0px;*/
-}
-.login a{
-    cursor: pointer;
 }
 /*
     footer

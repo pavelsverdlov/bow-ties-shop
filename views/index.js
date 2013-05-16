@@ -1,4 +1,5 @@
 exports.paths = {
+    err404: '../views/404.ejs',
     home: '../views/home.ejs',
     about: '../views/about.ejs',
 
@@ -11,6 +12,7 @@ exports.paths = {
 };
 
 exports.actions={
+
     home: '/',
     about: '/about/',
     bow_ties: '/bow-ties/',

@@ -1,11 +1,13 @@
 <% include _header.ejs %>
 
 <div class="">
-    <h2>Контакты</h2>
+    <h1>Контакты</h1>
 </div>
     <div class="span6">
         <div class="well well-small">
             <p>Если у Вас есть какие-то вопросы, комментарии, предложения или жалобы, пожалуйста, заполните форму обратной связи.</p>
+            <p>Также если Вы не нашли в нашем ассортименте галстук-бабочек нужную вам по типу, цвету или размеру, напишите нам
+                и мы сможем изготовить галстук-бабочку учитывая все ваши пожелания.</p>
             <p>Мы приложим все усилия для того, чтобы ответить Вам максимально быстро.</p>
         </div>
         <form class="form-horizontal" action="/contacts/new_order"  method="post">
@@ -72,7 +74,7 @@
                     <!--</div>-->
                 <!--</div>-->
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">Отправить</button>
+                    <button type="submit" class="btn btn-primary" title="Отправить письмо">Отправить</button>
                 </div>
             </fieldset>
         </form>
@@ -83,13 +85,13 @@
         </address>
         <address>
             <strong>Почта:</strong>
-            <a href="mailto:#">style.bowtiew@gmail.com</a>
+            <a title="почта" href="mailto:#">style.bowtiew@gmail.com</a>
         </address>
         <address>
             <strong>В контакте:</strong>
-            <a href="http://vk.com/galstuk_babochka_odessa">galstuk_babochka_odessa</a><br>
+            <a href="http://vk.com/galstuk_babochka_odessa" title="группа в контакте">galstuk_babochka_odessa</a><br>
         </address>
-        <img src="http://cs410419.vk.me/v410419922/7c67/Bzq95W1ZXQI.jpg"/>
+        <img title="галстук-бабочки" alt="галстук-бабочки" src="http://cs410419.vk.me/v410419922/7c67/Bzq95W1ZXQI.jpg"/>
     </div>
 
 <% include _scripts.ejs %>

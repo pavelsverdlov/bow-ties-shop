@@ -1,8 +1,16 @@
 var url = require("url"),
+    data = require('../data'),
     repository = require("../data/repository"),
     models = require('../models'),
     views = require("../views"),
     email = require("../controllers/emailController");
+
+var meta = {
+    'title':'Регистрация на сайте магазина галстук-бабочек '+ data.shop_name(),
+    'keywords':'регистрация на сайте '+ data.shop_name(),
+    'descr':'Регистрация на сайте магазина галстук-бабочек - '+ data.shop_name(),
+    'canonical':''
+};
 
 exports.checkLogin = function(req, res, next){
     if (req.session.is_auth && req.session.user) {
@@ -41,8 +49,10 @@ exports.registration = function(req, res) {
     if (req.session.is_auth && req.session.user) {
         res.redirect(views.actions.home);
     }
+    meta.canonical = 'http://' + req.get('host') + req.url;
+
     var lvm = models.layout.get(req);
-    //var user = models.user.get();
+    lvm.meta = meta;
     lvm.content = {
         'status': ''
        // 'user': user
@@ -65,7 +75,9 @@ exports.registration_POST = function(req, res){
         email.sendConfirmAuth(user,
             generate_url_confirm_reg(user.getId(), user.idate_reg),
             function(error, response){
+                meta.canonical = 'http://' + req.get('host') + req.url;
                 var lvm = models.layout.get(req);
+                lvm.meta = meta;
                 if(error){
                     lvm.content = {
                         'status': '<div class="alert alert-error"></div>'
@@ -83,7 +95,7 @@ exports.registration_POST = function(req, res){
     });
 };
 
-exports.login = function(req, res){ // Найти пользователя и выставить currentUser
+exports.login = function(req, res){
    // res.render(views.paths.registration,lvm);
 };
 
@@ -105,7 +117,7 @@ exports.logout = function(req, res) {// Удалить сессию
     if (req.session) {
         req.session.destroy(function() {});
     }
-    res.redirect(views.actions.home);
+    res.redirect(url.parse(req.headers['referer']).pathname);
 };
 
 //

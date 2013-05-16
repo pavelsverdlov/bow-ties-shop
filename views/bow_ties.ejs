@@ -1,5 +1,5 @@
 <% include _header.ejs %>
-<h2>Галстук-бабочки</h2>
+<h1>Галстук-бабочки</h1>
 <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery">
 </div>
 <br/>
@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a id="neworder" class="btn btn-inverse modal-play" style="float: left">
+        <a id="neworder" class="btn btn-inverse modal-play" title="<%= new_order.name %>" style="float: left">
             <i class="icon-play icon-shopping-cart"></i>
             <span><%= new_order.name %></span>
         </a>
@@ -50,11 +50,11 @@
             <!--<i class="icon-play icon-white"></i>-->
             <!--<span>Slideshow</span>-->
         <!--</a>-->
-        <a class="btn btn-info modal-prev">
+        <a class="btn btn-info modal-prev" title="Назад">
             <i class="icon-arrow-left icon-white"></i>
             <span>Назад</span>
         </a>
-        <a class="btn btn-info modal-next">
+        <a class="btn btn-info modal-next" title="Вперед">
             <span>Вперед</span>
             <i class="icon-arrow-right icon-white"></i>
         </a>

@@ -54,9 +54,12 @@
             $('<div class="thumbnail product-item"></div>').append(
                 $('<a data-gallery="gallery"/>')
                     // .append('<div class="label label-info price">€ 10,<sup>99</sup></div>')
-                    .append($('<img>').prop('src', photo.imgPath))//
+                    .append($('<img>')
+                    .prop('src', photo.imgPath))//
                     .prop('href', photo.imgPath)
-                    .prop('title', photo._id)
+                    .prop('title', photo.title + '-' + photo.descr +'-'+photo.price)
+                    .prop('alt', photo.title +'-'+photo.descr)
+                    .prop('id', photo._id)
             )
                 .append('<div class="caption"><p>' + photo.title+'</p>'+estim(index, photo.iRaty)+
                 '<span class="label-info price pull-right">'+photo.price+' грн.</span></div>')
@@ -182,7 +185,7 @@
             // The timeout allows transition effects to finish:
             window.setTimeout(function () { oldImg.remove(); }, 3000)
             //add information
-            var prod = products[this.$links[index].title];
+            var prod = products[this.$links[index].id];
             modal.find('.modal-number').text(prod._id);
             modal.find('.modal-price').text(prod.price + ' грн.');
             modal.find('#descr').text(prod.descr);

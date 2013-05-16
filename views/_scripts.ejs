@@ -1,14 +1,14 @@
 <div style="clear: both"/>
 <hr>
     <footer id="footer">
-        <p class="pull-right"><a href="#top">Вернуться к началу</a></p>
+        <p class="pull-right"><a title="Вернуться к началу" href="#top">Вернуться к началу</a></p>
         <nav class="links">
             <ul>
                 <li class="col">
                     <h4>Bow ties shop:</h4>
                     <ul class="list">
                         <% for(var i=0; i<menu.length; i++) { %>
-                            <li><a href="<%= menu[i].link %>"><%= menu[i].name %></a></li>
+                            <li><a href="<%= menu[i].link %>" title="<%= menu[i].name %>"><%= menu[i].name %></a></li>
                         <% } %>
                     </ul>
                 </li>
@@ -17,8 +17,9 @@
                     <ul class="list">
                         <% for(var i=0; i<socials.length; i++) { %>
                         <li>
-                            <a href="<%= socials[i].link %>" class="social-<%= socials[i].name %>" target="_blank">
-                                <img src="<%= socials[i].img %>" width="35px" height="35px" />
+                            <a title="<%= socials[i].name %>" href="<%= socials[i].link %>" class="social-<%= socials[i].name %>" target="_blank" rel="nofollow">
+                                <img src="<%= socials[i].img %>" title="<%= socials[i].name %>" alt="<%= socials[i].name %>"
+                                     width="35px" height="35px" />
                             </a>
                         </li>
                         <% } %>

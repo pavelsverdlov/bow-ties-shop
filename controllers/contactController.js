@@ -1,10 +1,21 @@
 var models = require('../models'),
+    data = require('../data'),
     emailcontroller = require('../controllers/emailController'),
     repository = require("../data/repository"),
     views = require("../views");
 
+var meta = {
+    'title':'Контактная информация '+ data.shop_name()+' - Заказ и пошив галстук-бабочек',
+    'keywords':'контакты, Одесса',
+    'descr':'Контактная информация онлайн магазина галстук-бабочек '+ data.shop_name(),
+    'canonical':''
+};
+
 exports.index = function(req, res){
+    meta.canonical = 'http://' + req.get('host') + req.url;
+
     var lvm =  models.layout.get(req);
+    lvm.meta = meta;
     lvm.content = '';
     res.render(views.paths.contact,lvm);
 };
@@ -12,6 +23,12 @@ exports.index = function(req, res){
 exports.new_order = function(req, res){
     var product = repository.product.getById(req.params.idbow);
     var lvm = models.layout.get(req);
+    lvm.meta = {
+        'title':'Заказ галстук-бабочки',
+        'keywords':'',
+        'descr':'',
+        'canonical': 'http://' + req.get('host') + req.url
+    };
     lvm.content = lvm.content = {
         'status': '',
         'productId': product._id,
@@ -34,6 +51,12 @@ exports.new_order_POST = function(req, res){
 
     emailcontroller.sendNewOrder(product,user,function(error, response){
         var lvm = models.layout.get(req);
+        lvm.meta = {
+            'title':'Заказ галстук бабочки',
+            'keywords':'',
+            'descr':'',
+            'canonical': 'http://' + req.get('host') + req.url
+        };
         lvm.content = {
             'status': '',
             'productId': product._id,
@@ -48,6 +71,7 @@ exports.new_order_POST = function(req, res){
             repository.user.addOrderAsync(user,orderId);
             console.log("Message sent: " + response.message);
         }
+
         res.render(views.paths.new_order,lvm);
     });
 };

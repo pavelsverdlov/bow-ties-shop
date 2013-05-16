@@ -4,7 +4,7 @@ var LayoutViewModel = function(_title,_menu, _socials){
 
     this.user = null;
 
-    this.title = _title;
+    this.menu_title = _title;
     this.content = '';
     this.menu = _menu;
     this.socials = _socials;
@@ -14,6 +14,8 @@ var LayoutViewModel = function(_title,_menu, _socials){
     this.registration = null;
     this.login = null;
     this.new_order = null;
+
+    this.meta = {'title':'','keywords':'','descr':'','canonical':''};
 
 //    this.getJson = function() {
 //        var json = {

@@ -2,13 +2,18 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/default/bootstrap-responsive.css" rel="stylesheet">
-    <link href="/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/bootswatch.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/bootstrap-image-gallery.min.css">
-    <link href="/css/style.css" rel="stylesheet">
+    <title><%= meta.title %></title>
+    <meta name="keywords" content="<%= meta.keywords %>" />
+    <meta name="description" content="<%= meta.descr %>" />
+    <link rel="canonical" href="<%= meta.canonical %>"/>
+
+    <link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/css/default/bootstrap-responsive.css">
+    <link type="text/css" rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="/css/bootswatch.css">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap-image-gallery.min.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div class="navbar navbar-fixed-top">
@@ -20,7 +25,7 @@
                 <!--<span class="icon-bar"></span>-->
             <!--</button>-->
             <a class="brand" href="/">
-                <%= title %> <img src="/img/bow-logo.png" width="50px"/> Shop
+                <%= menu_title %> <img src="/img/bow-logo.png" width="50px"/> Shop
             </a>
             <div class="nav-collapse collapse">
                 <% for(var i=0; i<menu.length; i++) { %>
@@ -28,31 +33,29 @@
                     <li><a href="<%= menu[i].link %>"><%= menu[i].name %></a></li>
                 </ul>
                 <% } %>
-            </div>
-            <div class="login">
-                <ul class="nav">
+                <ul class="nav pull-right">
+                    <!--<li class="divider-vertical"></li>-->
                     <% if(user){ %>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="icon-user"></i>
-                                <%= user.firstName %> <%= user.lastName %> <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <% for(var i=0; i<user_menu.length; i++) { %>
-                                    <li><a href="<%= user_menu[i].link %>"><i class="<%= user_menu[i].icon %>"></i><span><%= user_menu[i].name %></span></a></li>
-                                <% } %>
-                                <!--<li><a href="../auth/setting/<%= user._id %>/"><i class="icon-wrench"></i><span> Настройки</span></a></li>-->
-                                <!--<li><a href="../auth/setting/<%= user._id %>/"><i class="icon-shopping-cart"></i><span> Покупки</span></a></li>-->
-                                <li class="divider"></li>
-                                <li><a href="<%= logout.link %>"><i class="icon-off"></i><%= logout.name %></a></li>
-                            </ul>
-                        </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-user"></i>
+                            <%= user.firstName %> <%= user.lastName %> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <% for(var i=0; i<user_menu.length; i++) { %>
+                            <li><a href="<%= user_menu[i].link %>"><i class="<%= user_menu[i].icon %>"></i><span><%= user_menu[i].name %></span></a></li>
+                            <% } %>
+                            <!--<li><a href="../auth/setting/<%= user._id %>/"><i class="icon-wrench"></i><span> Настройки</span></a></li>-->
+                            <!--<li><a href="../auth/setting/<%= user._id %>/"><i class="icon-shopping-cart"></i><span> Покупки</span></a></li>-->
+                            <li class="divider"></li>
+                            <li><a href="<%= logout.link %>"><i class="icon-off"></i><%= logout.name %></a></li>
+                        </ul>
+                    </li>
                     <% } else { %>
-                        <li><a id="login"><i class="icon-user"></i><span><%= login.name %></span></a></li>
-                        <li><a id="reg" href="<%= registration.link %>"><i class="icon-pencil"></i><span><%= registration.name %></span></a></li>
+                    <li><a id="login" href="#"><i class="icon-user"></i><span><%= login.name %></span></a></li>
+                    <li><a id="reg" href="<%= registration.link %>"><i class="icon-pencil"></i><span><%= registration.name %></span></a></li>
                     <% } %>
                 </ul>
-
             </div>
         </div>
     </div>

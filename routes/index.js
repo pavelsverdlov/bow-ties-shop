@@ -1,5 +1,7 @@
 //var view = require('../views/view').view;
 var views = require("../views"),
+    seo = require('../controllers/seoController'),
+    errors = require('../controllers/errorsController'),
     home = require('../controllers/homeController'),
     contacts = require('../controllers/contactController'),
     products = require('../controllers/productsController'),
@@ -9,13 +11,14 @@ var views = require("../views"),
     api = require('../controllers/apiController');
 
 exports.init = function(app){
-    app.get(/[^/]$/, function(req, res, next){
-        if(/\.(png|css|js|)/.test(req.url)){
-            next();
-        }else{
-            res.redirect(req.url + '/');
-        }
-    });
+    app.use(errors.handler);
+//    app.get(/[^/]$/, function(req, res, next){
+//        if(/\.(png|css|js|txt|xml|xsl)/.test(req.url)){
+//            next();
+//        }else{
+//            res.redirect(req.url + '/');
+//        }
+//    });
 
     app.get(views.actions.login, auth.login);
     app.post(views.actions.login, auth.login_post);
@@ -44,4 +47,8 @@ exports.init = function(app){
     app.get('/api/getProducts/', api.getProducts);
     app.get('/api/getLoginForm/',api.getLoginForm)
 
+    //seo
+    app.get('/robots.txt', seo.robots);
+    app.get('/sitemap.xml', seo.sitemap_xml);
+    app.get('/sitemap.xsl', seo.sitemap_xsl);
 };
