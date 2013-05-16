@@ -60,6 +60,7 @@ hr{
 }
 .well{
     background-color: transparent;
+    box-shadow: none;
 }
 legend{
     font-style: italic;
@@ -69,7 +70,8 @@ form{
 }
 form legend{
     color: #4b322e;
-    margin-left: 40px;
+    /*margin-left: 40px;*/
+    padding-left: 40px;
     font-weight: bold;
 }
 /*form label{*/
