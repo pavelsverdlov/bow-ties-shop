@@ -16,7 +16,8 @@ exports.index = function(req, res){
 
     var lvm =  models.layout.get(req);
     lvm.meta = meta;
-    lvm.content = '';
+    lvm.content = [];
+    lvm.content.status='';
     res.render(views.paths.contact,lvm);
 };
 
@@ -29,13 +30,37 @@ exports.new_order = function(req, res){
         'descr':'',
         'canonical': 'http://' + req.get('host') + req.url
     };
-    lvm.content = lvm.content = {
+    lvm.content = {
         'status': '',
         'productId': product._id,
         'productImg': product.imgPath,
         'user':lvm.user ? lvm.user : models.user.get()
     };
     res.render(views.paths.new_order,lvm);
+};
+
+exports.send_mail = function(req, res){
+    var user = req.session.is_auth ? req.session.user :
+        models.user.get(
+            req.param('first-name', null),
+            req.param('last-name', null),
+            req.param('email', null)
+        );
+    emailcontroller.sendSimpleEmail(user,req.param('comments', null),
+        function(error, response){
+            meta.canonical = 'http://' + req.get('host') + req.url;
+            var lvm =  models.layout.get(req);
+            lvm.meta = meta;
+            lvm.content = {status:''};
+            if(error){
+                lvm.content.status = '<div class="alert alert-error">Произошла ошибка при отправке сообщения. Пожалуйста, повторите попытку.</div>';
+                console.log("contactComtroller.send_mail: " + error);
+            }else{
+                lvm.content.status = '<div class="alert alert-success">Сообщение было успешно отправленно.</div>';
+                console.log("contactComtroller.send_mail: " + response.message);
+            }
+            res.render(views.paths.contact,lvm);
+        });
 };
 
 exports.new_order_POST = function(req, res){

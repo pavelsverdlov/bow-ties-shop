@@ -39,6 +39,7 @@ exports.init = function(app){
     app.get('/contacts/', contacts.index);
     app.get('/contacts/new_order/:idbow/', contacts.new_order);
     app.post('/contacts/new_order/', contacts.new_order_POST);
+    app.post('/contacts/send_mail/', contacts.send_mail);
 
     app.get('/bow-ties/', products.index);
     //app.get('/bow-ties/', products.index);

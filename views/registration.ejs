@@ -5,7 +5,7 @@
     <div class="block-formsend">
         <%- content.status %>
 
-        <form class="form-horizontal" action="<%= registration.link %>"  method="post">
+        <form class="form-horizontal" action="<%= registration.link %>" id="regisrt"  method="post">
             <fieldset>
                 <legend></legend>
                 <div class="control-group">
@@ -74,9 +74,63 @@
     </div>
 </div>
 <% include _scripts.ejs %>
+<script type="text/javascript" src="/js/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
     function init(){    }
+    $(window).ready(function() {
+        $("#regisrt").validate({
+            rules: {
+                'first-name': {
+                    required: true,
+                    minlength: 2
+                },
+                'last-name': {
+                    required: true,
+                    minlength: 2
+                },
+                passwd: {
+                    required: true,
+                    minlength: 5
+                },
+                'passwd-confirm': {
+                    required: true,
+                    minlength: 5,
+                    equalTo: "#passwd"
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+//                    topic: {
+//                        required: "#newsletter:checked",
+//                        minlength: 2
+//                    },
+//                    agree: "required"
+            },
+            messages: {
+                'first-name': {
+                    required: "Пожалуйста введите Ваше имя",
+                    minlength: "Ваше имя не должно быть меньше 2-х символов"
+                },
+                'last-name': {
+                    required: "Пожалуйста введите Вашу фамилию",
+                    minlength: "Ваша фамилия не должна быть меньше 2-х символов"
+                },
+                passwd: {
+                    required: "Пожалуйста введите пароль",
+                    minlength: "Ваш пароль не должн быть меньше 5-ти символов"
+                },
+                'passwd-confirm': {
+                    required: "Пожалуйста подтвердите пароль",
+                    minlength: "Ваш пароль не должн быть меньше 5-ти символов",
+                    equalTo: "Пароли должны быть одинаковые"
+                },
+                email: "Пожалуйста введите корректный почтовый адрес"
+            }
+        });
+    });
 </script>
+
 
 <% include _footer.ejs %>

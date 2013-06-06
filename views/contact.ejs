@@ -11,7 +11,8 @@
                 и мы сможем изготовить галстук-бабочку учитывая все ваши пожелания.</p>
             <p>Мы приложим все усилия для того, чтобы ответить Вам максимально быстро.</p>
         </div>
-        <form class="form-horizontal" action="/contacts/new_order"  method="post">
+        <%- content.status %>
+        <form id="send-mail" class="form-horizontal" action="/contacts/send_mail/"  method="post" novalidate="novalidate">
             <fieldset>
                 <legend>Обратная связь</legend>
                     <label class="control-group-header">Представьтесь, пожалуйста.</label>
@@ -20,9 +21,10 @@
                         <div class="controls">
                             <% if(user){ %>
                                 <input type="text" class="input-xlarge" id="first-name" name="first-name" placeholder=""
-                                   value="<%= user.firstName %>" />
+                                      value="<%= user.firstName %>" />
                             <% } else { %>
-                                <input type="text" class="input-xlarge" id="first-name" name="first-name" placeholder=""/>
+                                <input type="text" class="input-xlarge" id="first-name" name="first-name" placeholder=""
+                                        />
                             <% } %>
                             <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
                         </div>
@@ -32,9 +34,10 @@
                         <div class="controls">
                             <% if(user){ %>
                                 <input type="text" class="input-xlarge" id="last-name" name="last-name" placeholder=""
-                                    value="<%= user.lastName %>" />
+                                       value="<%= user.lastName %>" />
                             <% } else { %>
-                                <input type="text" class="input-xlarge" id="last-name" name="last-name" placeholder="">
+                                <input type="text" class="input-xlarge" id="last-name" name="last-name" placeholder=""
+                                       >
                             <% } %>
                             <!--<p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>-->
                         </div>
@@ -43,13 +46,14 @@
                         <label class="control-label" for="email">Email*:</label>
                         <div class="controls">
                             <% if(user){ %>
-                            <input type="text" class="input-xlarge" name="email" id="email" placeholder=""
-                                value="<%= user.email %>" />
+                            <input type="email" class="input-xlarge" name="email" id="email" placeholder=""
+                                    value="<%= user.email %>" />
                             <% } else { %>
-                                <input type="text" class="input-xlarge" name="email" id="email" placeholder="">
+                                <input type="email" class="input-xlarge" name="email" id="email" placeholder=""
+                                       >
                             <% } %>
 
-                            <p class="help-block">Aдрес Вашей эл. почты для ответа.</p>
+                            <!--<p class="help-block">Aдрес Вашей эл. почты для ответа.</p>-->
                         </div>
                     </div>
                     <div class="control-group">
@@ -92,13 +96,69 @@
             <strong>В контакте:</strong>
             <a href="http://vk.com/galstuk_babochka_odessa" title="группа в контакте">galstuk_babochka_odessa</a><br>
         </address>
-        <img title="галстук-бабочки" alt="галстук-бабочки" src="http://cs410419.vk.me/v410419922/7c67/Bzq95W1ZXQI.jpg"/>
+        <img title="галстук-бабочки" alt="галстук-бабочки" src="http://cs417318.vk.me/v417318922/52e0/GzClHWfcLxY.jpg"/>
     </div>
 
 <% include _scripts.ejs %>
+    <script type="text/javascript" src="/js/jquery.validate.min.js"></script>
 
     <script type="text/javascript">
         function init(){    }
+        $(window).ready(function() {
+            $("#send-mail").validate({
+                rules: {
+                    'first-name': {
+                        required: true,
+                        minlength: 2
+                    },
+                    'last-name': {
+                        required: true,
+                        minlength: 2
+                    },
+                    comments: "required",
+//                    password: {
+//                        required: true,
+//                        minlength: 5
+//                    },
+//                    confirm_password: {
+//                        required: true,
+//                        minlength: 5,
+//                        equalTo: "#password"
+//                    },
+                    email: {
+                        required: true,
+                        email: true
+                    }
+//                    topic: {
+//                        required: "#newsletter:checked",
+//                        minlength: 2
+//                    },
+//                    agree: "required"
+                },
+                messages: {
+                    'first-name': {
+                        required: "Пожалуйста введите Ваше имя",
+                        minlength: "Ваше имя не должно быть меньше 2-х символов"
+                    },
+                    'last-name': {
+                        required: "Пожалуйста введите Вашу фамилию",
+                        minlength: "Ваша фамилия не должна быть меньше 2-х символов"
+                    },
+//                    password: {
+//                        required: "Please provide a password",
+//                        minlength: "Your password must be at least 5 characters long"
+//                    },
+//                    confirm_password: {
+//                        required: "Please provide a password",
+//                        minlength: "Your password must be at least 5 characters long",
+//                        equalTo: "Please enter the same password as above"
+//                    },
+                    comments: "Пожалуйста введите текст сообщения",
+                    email: "Пожалуйста введите корректный почтовый адрес"
+//                    agree: "Please accept our policy"
+                }
+            });
+        });
     </script>
 
 <% include _footer.ejs %>

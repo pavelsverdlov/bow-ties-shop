@@ -74,6 +74,9 @@ form legend{
     padding-left: 40px;
     font-weight: bold;
 }
+.error{
+    color: #ff0000;
+}
 /*form label{*/
     /*font-size: 16px;*/
     /*color: #4b322e;*/

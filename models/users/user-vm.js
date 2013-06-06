@@ -22,6 +22,14 @@ var UserViewModel = function(){
 };
 
 exports.get = function(){ return new UserViewModel(); }
+exports.get = function(firstname, lastname, email){
+    var user = new UserViewModel();
+    user.firstName = firstname;
+    user.lastName = lastname;
+    user.email = email;
+    return user;
+}
+
 
 exports.createModel = function(dbModel){
     var user = new UserViewModel();
