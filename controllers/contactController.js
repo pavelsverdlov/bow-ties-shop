@@ -34,7 +34,7 @@ exports.new_order = function(req, res){
         'status': '',
         'productId': product._id,
         'productImg': product.imgPath,
-        'user':lvm.user ? lvm.user : models.user.get()
+        'user':req.session.is_auth ? req.session.user : models.user.get('','','')
     };
     res.render(views.paths.new_order,lvm);
 };
@@ -68,7 +68,7 @@ exports.new_order_POST = function(req, res){
     var product = repository.product.getById(orderId);
 
     var user = req.session.is_auth ? req.session.user :
-        models.user.createModel(
+        models.user.get(
             req.param('first-name', null),
             req.param('last-name', null),
             req.param('email', null)

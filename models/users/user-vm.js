@@ -21,7 +21,6 @@ var UserViewModel = function(){
     this.isConfirm = false;
 };
 
-exports.get = function(){ return new UserViewModel(); }
 exports.get = function(firstname, lastname, email){
     var user = new UserViewModel();
     user.firstName = firstname;
