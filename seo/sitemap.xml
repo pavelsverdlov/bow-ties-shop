@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://bow-ties.od.ua/sitemap.xsl"?><urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>http://bow-ties.od.ua/</loc>
-        <lastmod>2013-06-6</lastmod>
+        <lastmod>2013-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1</priority>
     </url>
     <url>
         <loc>http://bow-ties.od.ua/bow-ties/</loc>
-        <lastmod>2013-06-6</lastmod>
+        <lastmod>2013-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1</priority>
     </url>
     <url>
         <loc>http://bow-ties.od.ua/contacts/</loc>
-        <lastmod>2013-06-6</lastmod>
+        <lastmod>2013-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
     </url>
     <url>
         <loc>http://bow-ties.od.ua/auth/registration/</loc>
-        <lastmod>2013-06-6</lastmod>
+        <lastmod>2013-06-17</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.95</priority>
     </url>
