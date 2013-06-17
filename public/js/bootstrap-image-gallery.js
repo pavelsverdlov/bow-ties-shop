@@ -36,13 +36,16 @@
     var products = {};
 
     function estim(index,iRaty){
-        var tag = '<div id="raty-'+index+'" class="estimate" data-rating="2.9779" style="display: inline; cursor: pointer">';
+        var tag = '<div id="raty-'+index+'" class="estimate" data-rating="2.9779" style="display: inline; cursor: pointer" '+
+            'itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
         for(var i=1;i<6;++i){
             tag += '<img src="/img/star-'+ (i <= iRaty ? 'on' : 'off')
-                +'.png" alt="'+i+'" title="bad" onmouseover="estimateSelect('+index+','+i+
+                +'.png" alt="'+i+'" title="rating" onmouseover="estimateSelect('+index+','+i+
                 ')" onmouseout="estimateUnselect('+index+','+i+')">&nbsp;';
         }
-        tag += '<input type="hidden" name="score" value="2.9779"></div>';
+        tag += '<span class="hidden" itemprop="ratingValue">'+5/*iRaty*/+'</span>' +
+               '<span class="hidden" itemprop="reviewCount">10</span>' + //кол отзывов
+            '</div>';//<input type="hidden" name="score" value="2.9779">
         return tag;
     }
 
@@ -51,7 +54,7 @@
         var product = $('#gallery');
         var index = 1;
         $.each(data, function (index, photo) {
-            $('<div class="thumbnail product-item"></div>').append(
+            $('<div class="thumbnail product-item" itemscope itemtype="http://schema.org/Product"></div>').append(
                 $('<a data-gallery="gallery"/>')
                     // .append('<div class="label label-info price">€ 10,<sup>99</sup></div>')
                     .append($('<img>')
@@ -60,9 +63,15 @@
                     .prop('title', photo.title + '-' + photo.descr +'-'+photo.price)
                     .prop('alt', photo.title +'-'+photo.descr)
                     .prop('id', photo._id)
+                    .prop('itemprop','image')
             )
-                .append('<div class="caption"><p>' + photo.title+'</p>'+estim(index, photo.iRaty)+
-                '<span class="label-info price pull-right">'+photo.price+' грн.</span></div>')
+                .append('<div class="caption" itemprop="review" itemscope itemtype="http://schema.org/Review">'+
+                    '<p><span itemprop="name">' + photo.title+'</span></p>'+
+                //<link itemprop="availability" href="http://schema.org/InStock" />In stock - доступность
+                    estim(index, photo.iRaty)+
+                    '<div class="label-info price pull-right" itemprop="offers" itemscope itemtype="http://schema.org/Offer">'+
+                        '<span itemprop="price">' + photo.price +
+                ' грн.<meta itemprop="currency" content="UAH"/></span></div></div>')
                 .appendTo(product);
             ++index;
             products[photo._id] = photo;

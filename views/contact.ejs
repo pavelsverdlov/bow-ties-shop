@@ -84,19 +84,31 @@
             </fieldset>
         </form>
     </div>
-    <div class="span5">
+    <div class="span5" itemscope itemtype="http://schema.org/Organization">
         <address>
-            <span><span class="company-name">Bow Ties Shop</span> находиться в Украине, город Одесса.</span>
+            <span class="company-name" itemprop="name">
+                <a href="<%= menu[1].link %>" title="магазин галстук-бабочек 'Bow Ties Shop'">Bow Ties Shop</a>
+            </span>
+            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                находиться в <span itemprop="addressLocality">Украине, Одесса.</span>
+            </span>
         </address>
         <address>
             <strong>Почта:</strong>
-            <a title="почта" href="mailto:#">style.bowtiew@gmail.com</a>
+            <a title="почта" href="mailto:#"><span itemprop="email">style.bowtiew@gmail.com</span></a>
         </address>
         <address>
             <strong>В контакте:</strong>
             <a href="http://vk.com/galstuk_babochka_odessa" title="группа в контакте">galstuk_babochka_odessa</a><br>
         </address>
         <img title="галстук-бабочки" alt="галстук-бабочки" src="http://cs417318.vk.me/v417318922/52e0/GzClHWfcLxY.jpg"/>
+        <div itemscope itemtype="http://schema.org/Place">
+
+            <div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+                <meta itemprop="latitude" content="46.28" />
+                <meta itemprop="longitude" content="30.43" />
+            </div>
+        </div>
     </div>
 
 <% include _scripts.ejs %>
