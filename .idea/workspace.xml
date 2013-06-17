@@ -21,8 +21,9 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/products/db_file_img_4360_234x234.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/products/db_file_img_4365_234x234.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/products/db_file_img_4370_234x234.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/bootstrap-image-gallery.js" afterPath="$PROJECT_DIR$/public/js/bootstrap-image-gallery.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/routes/bow_ties.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/routes/products.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/seoController.js" afterPath="$PROJECT_DIR$/controllers/seoController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/contact.ejs" afterPath="$PROJECT_DIR$/views/contact.ejs" />
     </list>
     <ignored path="bow-ties-shop.iws" />
@@ -46,7 +47,7 @@
       <file leaf-file-name="bootstrap-image-gallery.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/bootstrap-image-gallery.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="29" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.0">
+            <state line="61" column="48" selection-start="2248" selection-end="2248" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -54,13 +55,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="contact.ejs" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="contact.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/contact.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="35" selection-start="5409" selection-end="5409" vertical-scroll-proportion="0.2783505">
+            <state line="97" column="25" selection-start="5656" selection-end="5656" vertical-scroll-proportion="-12.75">
               <folding>
                 <element signature="tag#form#0;tag#div#1" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="51" selection-start="1542" selection-end="1542" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seoController.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/seoController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="28" selection-start="777" selection-end="777" vertical-scroll-proportion="0.6396552">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,7 +96,7 @@
       <file leaf-file-name="bow_ties.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/bow_ties.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="55" selection-start="191" selection-end="195" vertical-scroll-proportion="-3.392857">
+            <state line="67" column="0" selection-start="2593" selection-end="2593" vertical-scroll-proportion="-13.535714">
               <folding>
                 <element signature="tag#div#1;tag#div#0;tag#div#1" expanded="false" />
                 <element signature="tag#div#1;tag#div#1" expanded="false" />
@@ -106,7 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/views/bow_ties.ejs" />
         <option value="$PROJECT_DIR$/controllers/errorsController.js" />
         <option value="$PROJECT_DIR$/views/_scripts.ejs" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
@@ -122,12 +140,13 @@
         <option value="$PROJECT_DIR$/controllers/contactController.js" />
         <option value="$PROJECT_DIR$/public/js/bootstrap-image-gallery.js" />
         <option value="$PROJECT_DIR$/views/contact.ejs" />
+        <option value="$PROJECT_DIR$/controllers/seoController.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="64" />
-    <option name="y" value="-4" />
+    <option name="y" value="-1084" />
     <option name="width" value="1857" />
     <option name="height" value="1085" />
   </component>
@@ -260,38 +279,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -400,14 +387,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1857" height="1085" extended-state="6" />
-    <editor active="true" />
+    <frame x="64" y="-1084" width="1857" height="1085" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14590164" sideWeight="0.37419355" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1546448" sideWeight="0.6548387" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3451613" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1546448" sideWeight="0.6548387" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3451613" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39139786" sideWeight="0.9989071" order="2" side_tool="false" content_ui="tabs" />
@@ -480,33 +467,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/seo/sitemap.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="26" selection-start="427" selection-end="427" vertical-scroll-proportion="0.06418919">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seo/robots.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="34" selection-start="175" selection-end="175" vertical-scroll-proportion="0.21087681" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/registration.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="32" selection-start="5945" selection-end="5945" vertical-scroll-proportion="0.97823596" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/_header.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="47" selection-start="228" selection-end="228" vertical-scroll-proportion="0.1305842" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="55" selection-start="1823" selection-end="1823" vertical-scroll-proportion="0.59933406">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/new_order.ejs">
@@ -535,13 +498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/products.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/contactController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="18" selection-start="2076" selection-end="2076" vertical-scroll-proportion="0.0">
@@ -556,16 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/bow_ties.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="55" selection-start="191" selection-end="195" vertical-scroll-proportion="-3.392857">
-          <folding>
-            <element signature="tag#div#1;tag#div#0;tag#div#1" expanded="false" />
-            <element signature="tag#div#1;tag#div#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/layout-viewmodel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="37" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.32519424">
@@ -575,19 +521,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/bootstrap-image-gallery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="29" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.0">
+        <state line="61" column="48" selection-start="2248" selection-end="2248" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/bow_ties.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="0" selection-start="2593" selection-end="2593" vertical-scroll-proportion="-13.535714">
+          <folding>
+            <element signature="tag#div#1;tag#div#0;tag#div#1" expanded="false" />
+            <element signature="tag#div#1;tag#div#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/contact.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="35" selection-start="5409" selection-end="5409" vertical-scroll-proportion="0.2783505">
+        <state line="97" column="25" selection-start="5656" selection-end="5656" vertical-scroll-proportion="-12.75">
           <folding>
             <element signature="tag#form#0;tag#div#1" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="51" selection-start="1542" selection-end="1542" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/seoController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="28" selection-start="777" selection-end="777" vertical-scroll-proportion="0.6396552">
+          <folding />
         </state>
       </provider>
     </entry>
