@@ -9,25 +9,26 @@
            id="<%= content.products[i]._id %>">
             <img src="<%= content.products[i].imgPath %>"
                  alt="<%= content.products[i].title + '-' + content.products[i].descr %>"></a>
-        <div class="caption" itemprop="review" itemscope itemtype="http://schema.org/Review">
+        <div class="caption">
             <p><span itemprop="name"><%= content.products[i].title %></span></p>
+            <div itemprop="review" itemscope itemtype="http://schema.org/Review">
+                <div id="raty-<%= i %>" class="estimate" data-rating="2.9779"
+                    style="display: inline; cursor: pointer"
+                    itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                    <% for(var iraty=1; iraty < 6 ; ++iraty) { %>
+                        <img src="/img/star-<% if(iraty <= content.products[i].iRaty){ %>on<%} else {%>off<% } %>.png"
+                             alt="<%= iraty %>" title="rating"
+                             onmouseover="estimateSelect(<%= i %>,<%= iraty %>)"
+                             onmouseout="estimateUnselect(<%= i %>,<%= iraty %>)">
+                    <% } %>
+                    <span class="hidden" itemprop="ratingValue">5</span>
+                    <span class="hidden" itemprop="reviewCount">10</span>
+                </div>
 
-            <div id="raty-<%= i %>" class="estimate" data-rating="2.9779"
-                style="display: inline; cursor: pointer"
-                itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-                <% for(var iraty=1; iraty < 6 ; ++iraty) { %>
-                    <img src="/img/star-<% if(iraty <= content.products[i].iRaty){ %>on<%} else {%>off<% } %>.png"
-                         alt="<%= iraty %>" title="rating"
-                         onmouseover="estimateSelect(<%= i %>,<%= iraty %>)"
-                         onmouseout="estimateUnselect(<%= i %>,<%= iraty %>)">&nbsp;
-                <% } %>
-                <span class="hidden" itemprop="ratingValue">5</span>
-                <span class="hidden" itemprop="reviewCount">10</span>
-            </div>
-
-            <div class="label-info price pull-right" itemprop="offers"
-                 itemscope itemtype="http://schema.org/Offer">
-                <span itemprop="price"><%= content.products[i].price %> грн.<meta itemprop="currency" content="UAH"></span>
+                <div class="label-info price pull-right" itemprop="offers"
+                     itemscope itemtype="http://schema.org/Offer">
+                    <span itemprop="price"><%= content.products[i].price %> грн.<meta itemprop="priceCurrency" content="UAH"></span>
+                </div>
             </div>
         </div>
     </div>
