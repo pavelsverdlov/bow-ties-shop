@@ -1,14 +1,41 @@
 <% include _header.ejs %>
 <h1>Галстук-бабочки</h1>
 <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery">
+    <% for(var i=0; i<content.products.length; ++i) { %>
+    <div class="thumbnail product-item" itemscope itemtype="http://schema.org/Product">
+        <a data-gallery="gallery"
+           href="<%= content.products[i].imgPath %>"
+           title="<%= content.products[i].title + '-' + content.products[i].descr +'-'+content.products[i].price %>"
+           id="<%= content.products[i]._id %>">
+            <img src="<%= content.products[i].imgPath %>"
+                 alt="<%= content.products[i].title + '-' + content.products[i].descr %>"></a>
+        <div class="caption" itemprop="review" itemscope itemtype="http://schema.org/Review">
+            <p><span itemprop="name"><%= content.products[i].title %></span></p>
+
+            <div id="raty-<%= i %>" class="estimate" data-rating="2.9779"
+                style="display: inline; cursor: pointer"
+                itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                <% for(var iraty=1; iraty < 6 ; ++iraty) { %>
+                    <img src="/img/star-<% if(iraty <= content.products[i].iRaty){ %>on<%} else {%>off<% } %>.png"
+                         alt="<%= iraty %>" title="rating"
+                         onmouseover="estimateSelect(<%= i %>,<%= iraty %>)"
+                         onmouseout="estimateUnselect(<%= i %>,<%= iraty %>)">&nbsp;
+                <% } %>
+                <span class="hidden" itemprop="ratingValue">5</span>
+                <span class="hidden" itemprop="reviewCount">10</span>
+            </div>
+
+            <div class="label-info price pull-right" itemprop="offers"
+                 itemscope itemtype="http://schema.org/Offer">
+                <span itemprop="price"><%= content.products[i].price %> грн.<meta itemprop="currency" content="UAH"></span>
+            </div>
+        </div>
+    </div>
+    <% } %>
 </div>
 <br/>
 <div id="modal-gallery" class="modal modal-gallery hide fade" tabindex="-1">
-    <!--<div class="modal-header">-->
-        <a class="close" data-dismiss="modal"></a>
-        <!--<h3 class="modal-title"></h3>-->
-    <!--</div>-->
-
+    <a class="close" data-dismiss="modal"></a>
     <div class="modal-body">
         <div class="modal-body-image">
             <span class="modal-title"></span><small id="idbow" class="modal-number">номер:</small>
@@ -26,13 +53,6 @@
                     <ul>
                         <li>Обхват шеи: до <span id="size"></span> см</li>
                     </ul>
-                    <!--<p>100% Французкий трикотаж.</p>-->
-                    <!--<small>-->
-                        <!--<ul>-->
-                            <!--<li>Размеры:</li>-->
-                            <!--<li>Размер шеи:</li>-->
-                        <!--</ul>-->
-                    <!--</small>-->
                 </div>
             </div>
         </div>

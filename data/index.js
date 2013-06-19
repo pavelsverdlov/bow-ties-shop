@@ -13,7 +13,10 @@ exports.meta =  {
     }
 };
 
+exports.repository = require("./repository");
+
 
 function getShopName(){
     return 'Bow Ties Shop';
 }
+

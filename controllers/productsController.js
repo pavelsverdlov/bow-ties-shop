@@ -1,4 +1,4 @@
-var layout_data = require('../models/layout-viewmodel'),
+var models = require('../models'),
     data = require('../data'),
     views = require("../views");
 
@@ -12,8 +12,10 @@ var meta = {
 exports.index = function(req, res){
     meta.canonical = 'http://' + req.get('host') + req.url;
 
-    var lvm =  layout_data.get(req);
-    lvm.meta = meta;
-    lvm.content = '';
-    res.render(views.paths.bow_ties,lvm);
+    data.repository.product.getList(function(products){
+        var lvm =  models.layout.get(req);
+        lvm.meta = meta;
+        lvm.content ={products: products};
+        res.render(views.paths.bow_ties,lvm);
+    });
 };

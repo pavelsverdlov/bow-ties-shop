@@ -51,29 +51,29 @@
 
     // Load images via flickr for demonstration purposes:
     $.ajax({ url: '/api/getProducts/', dataType: 'json'}).done(function (data) {
-        var product = $('#gallery');
-        var index = 1;
+       // var product = $('#gallery');
+       // var index = 1;
         $.each(data, function (index, photo) {
-            $('<div class="thumbnail product-item" itemscope itemtype="http://schema.org/Product"></div>').append(
-                $('<a data-gallery="gallery"/>')
-                    // .append('<div class="label label-info price">€ 10,<sup>99</sup></div>')
-                    .append($('<img>')
-                    .prop('src', photo.imgPath))//
-                    .prop('href', photo.imgPath)
-                    .prop('title', photo.title + '-' + photo.descr +'-'+photo.price)
-                    .prop('alt', photo.title +'-'+photo.descr)
-                    .prop('id', photo._id)
-                    .prop('itemprop','image')
-            )
-                .append('<div class="caption" itemprop="review" itemscope itemtype="http://schema.org/Review">'+
-                    '<p><span itemprop="name">' + photo.title+'</span></p>'+
-                //<link itemprop="availability" href="http://schema.org/InStock" />In stock - доступность
-                    estim(index, photo.iRaty)+
-                    '<div class="label-info price pull-right" itemprop="offers" itemscope itemtype="http://schema.org/Offer">'+
-                        '<span itemprop="price">' + photo.price +
-                ' грн.<meta itemprop="currency" content="UAH"/></span></div></div>')
-                .appendTo(product);
-            ++index;
+//            $('<div class="thumbnail product-item" itemscope itemtype="http://schema.org/Product"></div>').append(
+//                $('<a data-gallery="gallery"/>')
+//                    // .append('<div class="label label-info price">€ 10,<sup>99</sup></div>')
+//                    .append($('<img>')
+//                    .prop('src', photo.imgPath))//
+//                    .prop('href', photo.imgPath)
+//                    .prop('title', photo.title + '-' + photo.descr +'-'+photo.price)
+//                    .prop('alt', photo.title +'-'+photo.descr)
+//                    .prop('id', photo._id)
+//                    .prop('itemprop','image')
+//            )
+//                .append('<div class="caption" itemprop="review" itemscope itemtype="http://schema.org/Review">'+
+//                    '<p><span itemprop="name">' + photo.title+'</span></p>'+
+//                //<link itemprop="availability" href="http://schema.org/InStock" />In stock - доступность
+//                    estim(index, photo.iRaty)+
+//                    '<div class="label-info price pull-right" itemprop="offers" itemscope itemtype="http://schema.org/Offer">'+
+//                        '<span itemprop="price">' + photo.price +
+//                ' грн.<meta itemprop="currency" content="UAH"/></span></div></div>')
+//                .appendTo(product);
+//            ++index;
             products[photo._id] = photo;
         });
     });

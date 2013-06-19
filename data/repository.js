@@ -96,7 +96,8 @@ exports.product =  {
             if(products.length){
                 func(products);
                 return;
-            }for(var i=0; i < docs.length; ++i){
+            }
+            for(var i=0; i < docs.length; ++i){
                 products.push(models.bowtie.createBowTie(docs[i]));
             }
             func(products);
