@@ -156,6 +156,12 @@ a:hover, a:focus {
     /*-webkit-border-radius: 4px;*/
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.055);
 }
+.product-item span[itemprop=name]{
+    font-size: 1.2em;
+}
+.product-item img[itemprop=image]{
+    height: 176px;
+}
 
 .product-item a{
 
