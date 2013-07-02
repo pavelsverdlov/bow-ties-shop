@@ -151,6 +151,23 @@ exports.user = {
 
         });
     },
+    findOrCreateAsync: function(email,firstName, lastName, callback){
+        var col_name = this.name;
+        connect('',function(db){
+            db.collection(col_name).find( {email: email, firstName: firstName, lastName:lastName }, {limit:1})
+                .toArray(function(err, docs) {
+                    if(docs.length){
+                        callback(null,models.user.createModel(docs[0]));
+                    }else{
+                        var model = models.user.get(firstName,lastName,email);
+                        exports.user.save(model,function(err, i){
+                            callback(err,i > 0 ? model : null);
+                        });
+                    }
+            });
+        });
+    },
+
     getList: function(func){
 //        if(users.length){
 //            func(users);
@@ -159,7 +176,7 @@ exports.user = {
         find(this.name, function(err, docs){
             if(err) throw err;
             for(var i=0; i < docs.length; ++i){
-                users.push(model.user.createModel(docs[i]));
+                users.push(models.user.createModel(docs[i]));
             }
             func(users);
         });
@@ -178,7 +195,7 @@ exports.user = {
     },
     addOrderAsync: function(_user,id_product){
         _user.orders.push(id_product);
-        update(this.name, {_id:ObjectID(_user._id)},{$set: {orders: _user.orders}}, {safe:false});
+        update(this.name, {_id:_user._id},{$set: {orders: _user.orders}}, {safe:false});
     }
 };
 

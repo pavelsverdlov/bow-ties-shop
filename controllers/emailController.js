@@ -1,5 +1,6 @@
 var nodemailer = require("nodemailer"),
-    fs = require('fs');
+    fs = require('fs'),
+    templates = require('../templates');
 var smtpTransport = nodemailer.createTransport("SMTP",{
     service: "Gmail",
     auth: {
@@ -71,30 +72,43 @@ exports.sendSimpleEmail = function(user, text,callback){
 
 exports.sendNewOrder = function(product,user,callback){
 
-    var templ = '<div>\
-        <h3>Bow Ties Shop</h3>\
-        <div>\
-            <span>Здравствуйте, '+user.lastName +' ' + user.firstName + '!</span>\
-            <br/>\
-            <span>Вы сделали заказ на покупку бачки №' + product.id +'</span>\
-            <br/>\
-            <span>Цена: '+product.price+' грн.; '+ product.descr +'</span>\
-        </div>\
-        <img style="width: 20%" src="'+product.imgPath+'"/>'+signature+
-        '</div>';
+//    var templ = '<div>\
+//        <h3>Bow Ties Shop</h3>\
+//        <div>\
+//            <span>Здравствуйте, '+user.lastName +' ' + user.firstName + '!</span>\
+//            <br/>\
+//            <span>Вы сделали заказ на покупку бачки №' + product.id +'</span>\
+//            <br/>\
+//            <span>Цена: '+product.price+' грн.; '+ product.descr +'</span>\
+//        </div>\
+//        <img style="width: 20%" src="'+product.imgPath+'"/>'+signature+
+//        '</div>';
 
-    var mailOptionsOrderer = {
-        from: 'Магазин галстук-бабочки<bow-ties-shop@gmail.com>',
-        to: user.email, // list of receivers
-        subject: 'Заказ галстук-бабочки - ' + product.id, // Subject line
-        text: 'Здравствуйте ' + user.firstName +' ' + user.lastName, // plaintext body
-        html: templ
-    };
-    var mailOptions = getOwnOptions(
-        'Заказали галстук-бабочку - ' + product.id,
-        'Пользователь ' + user.firstName +' ' + user.lastName + 'заказал галстук-бабочку.',
-        templ
-    );
+    templates.create_email_template_async(user,product,function(html){
+        var mailOptionsOrderer = {
+            from: 'Магазин галстук-бабочки<bow-ties-shop@gmail.com>',
+            to: user.email, // list of receivers
+            subject: 'Заказ галстук-бабочки - ' + product.id, // Subject line
+            text: 'Здравствуйте ' + user.firstName +' ' + user.lastName, // plaintext body
+            html: html
+        };
+        var mailOptions = getOwnOptions(
+            'Заказали галстук-бабочку - ' + product.id,
+            'Пользователь ' + user.firstName +' ' + user.lastName + 'заказал галстук-бабочку.',
+            html
+        );
+        smtpTransport.sendMail(mailOptions, function(error, response){
+            if(error){
+                console.log(error);
+                callback(error,response);
+            }else{
+                smtpTransport.sendMail(mailOptionsOrderer, callback);
+            }
+        });
+    });
+
+
+
 //    {
 //        from: 'Магазин галстук-бабочки<bow-ties-shop@gmail.com>',
 //        to: smtpTransport.options.auth.user,
@@ -103,14 +117,7 @@ exports.sendNewOrder = function(product,user,callback){
 //        html: templ
 //    }
     //send us
-    smtpTransport.sendMail(mailOptions, function(error, response){
-        if(error){
-            console.log(error);
-            callback(error,response);
-        }else{
-            smtpTransport.sendMail(mailOptionsOrderer, callback);
-        }
-    });
+
 };
 
 exports.sendConfirmAuth = function(user,confirm_url,callback){

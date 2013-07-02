@@ -1,14 +1,15 @@
 <% include _header.ejs %>
 
-<%- content.status %>
-<form class="form-horizontal" action="<%= new_order.link %>"  method="post">
+<h2>Оформление заказа</h2>
+<div class="block-formsend">
+    <%- content.status %>
+    <form class="form-horizontal" action="<%= new_order.link %>" id="neworder" method="post">
     <fieldset>
-        <legend>Оформление заказа</legend>
-        <div style="float: left">
+        <legend></legend>
         <div class="control-group">
             <label class="control-label" for="first-name">Фамилия*:</label>
             <div class="controls">
-                <input type="text" class="input-xlarge uneditable-input" id="first-name" name="first-name" placeholder=""
+                <input type="text" class="input-xlarge" id="first-name" name="first-name" placeholder=""
                        value="<%= content.user.firstName %>" >
             </div>
         </div>
@@ -41,11 +42,6 @@
                 <textarea class="input-xlarge" name="comments" id="comments" rows="3"></textarea>
             </div>
         </div>
-        </div>
-        <div style="float: left;margin-left: 5%">
-            <img src="<%= content.productImg %>" style="border-radius: 7px;width: 50%"/>
-        </div>
-        <div style="clear: both"/>
         <% if(!user){ %>
         <div class="control-group">
             <label class="control-label" for="is-subscribe">Подписаться:</label>
@@ -62,14 +58,71 @@
         </div>
         <input id="order-number" name="order-number" type="text" class="hidden" value="<%= content.productId %>">
     </fieldset>
-
-</form>
+    </form>
+    </div>
+<div class="block-contacts">
+    <img src="<%= content.productImg %>" alt="" title=""/>
+    <!-- style="border-radius: 7px;width: 50%"-->
+</div>
 
 
 <% include _scripts.ejs %>
+<script type="text/javascript" src="/js/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
     function init(){    }
+    $(window).ready(function() {
+        $("#neworder").validate({
+            rules: {
+                'first-name': {
+                    required: true,
+                    minlength: 2
+                },
+                'last-name': {
+                    required: true,
+                    minlength: 2
+                },
+                passwd: {
+                    required: true,
+                    minlength: 5
+                },
+                'passwd-confirm': {
+                    required: true,
+                    minlength: 5,
+                    equalTo: "#passwd"
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+//                    topic: {
+//                        required: "#newsletter:checked",
+//                        minlength: 2
+//                    },
+//                    agree: "required"
+            },
+            messages: {
+                'first-name': {
+                    required: "Пожалуйста введите Ваше имя",
+                    minlength: "Ваше имя не должно быть меньше 2-х символов"
+                },
+                'last-name': {
+                    required: "Пожалуйста введите Вашу фамилию",
+                    minlength: "Ваша фамилия не должна быть меньше 2-х символов"
+                },
+                passwd: {
+                    required: "Пожалуйста введите пароль",
+                    minlength: "Ваш пароль не должн быть меньше 5-ти символов"
+                },
+                'passwd-confirm': {
+                    required: "Пожалуйста подтвердите пароль",
+                    minlength: "Ваш пароль не должн быть меньше 5-ти символов",
+                    equalTo: "Пароли должны быть одинаковые"
+                },
+                email: "Пожалуйста введите корректный почтовый адрес"
+            }
+        });
+    });
 </script>
 
 <% include _footer.ejs %>
