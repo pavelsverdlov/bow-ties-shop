@@ -2,7 +2,7 @@ var models = require('../models'),
     data = require('../data'),
     emailcontroller = require('../controllers/emailController'),
     repository = require("../data/repository"),
-    log = require('../controllers/LoggerController'),
+    log = require('../controllers/loggerController'),
     views = require("../views");
 
 var meta = {
@@ -89,8 +89,8 @@ function sendNewOrder(user, req, res){
     var orderId = req.param('order-number', null);
     var product = repository.product.getById(orderId);
     emailcontroller.sendNewOrder(product,user,
-        function(error,response){
-            write_debug_log(product,user,'sendNewOrder','The message: ' + response.message);
+        function(error){
+            write_debug_log(product,user,'sendNewOrder','The message: ');
             new_order_response(error, user, req, res);
         }
     );
