@@ -7,9 +7,9 @@ var mongoClient = require('mongodb').MongoClient,
     BSON = require('mongodb').pure().BSON,
     crypto = require('crypto');
 
-var user ='',
-    pass='',
-    url = '';
+var user ='bts_mdbd',
+    pass='jltccrfzblacc20',
+    url = 'mongodb://bts_mdbd:jltccrfzblacc20@dharma.mongohq.com:10092/bow-ties-shop';
 
 //var exec = require("child_process").exec;
 var models = require("../models");
