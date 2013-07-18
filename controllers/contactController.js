@@ -35,7 +35,7 @@ exports.new_order = function(req, res){
     };
     lvm.content = {
         'status': '',
-        'productId': product._id,
+        'productId': product.id,
         'productImg': product.imgPath,
         'user':req.session.is_auth ? req.session.user : models.user.get('','','')
     };
@@ -50,17 +50,19 @@ exports.send_mail = function(req, res){
             req.param('email', null)
         );
     emailcontroller.sendSimpleEmail(user,req.param('comments', null),
-        function(error, response){
+        function(error){
             meta.canonical = 'http://' + req.get('host') + req.url;
             var lvm =  models.layout.get(req);
             lvm.meta = meta;
             lvm.content = {status:''};
             if(error){
+                write_er_log(null,user,'send_mail',error);
                 lvm.content.status = '<div class="alert alert-error">Произошла ошибка при отправке сообщения. Пожалуйста, повторите попытку.</div>';
                 console.log("contactComtroller.send_mail: " + error);
             }else{
                 lvm.content.status = '<div class="alert alert-success">Сообщение было успешно отправленно.</div>';
-                console.log("contactComtroller.send_mail: " + response.message);
+                console.log("contactComtroller.send_mail: " );
+                write_debug_log(null,user,'send_mail','ok');
             }
             res.render(views.paths.contact,lvm);
         });
@@ -77,6 +79,7 @@ exports.new_order_POST = function(req, res){
                 if(error){
                     new_order_response(error, _user, req, res);
                 }else{
+                    _user.phone = req.param('phone', null);
                     write_debug_log(null,_user,'new_order_POST','The not auth user was created/found successful.');
                     sendNewOrder(_user, req, res);
                 }
@@ -87,8 +90,9 @@ exports.new_order_POST = function(req, res){
 
 function sendNewOrder(user, req, res){
     var orderId = req.param('order-number', null);
+    var comments = req.param('comments', null);
     var product = repository.product.getById(orderId);
-    emailcontroller.sendNewOrder(product,user,
+    emailcontroller.sendNewOrder(product,user, comments,
         function(error){
             write_debug_log(product,user,'sendNewOrder','The message: ');
             new_order_response(error, user, req, res);
@@ -108,7 +112,7 @@ function new_order_response(error, user, req, res){
     };
     lvm.content = {
         'status': '',
-        'productId': product._id,
+        'productId': product.id,
         'productImg': product.imgPath,
         'user': user
     };
@@ -127,12 +131,12 @@ function new_order_response(error, user, req, res){
 
 function write_er_log(product,user,method,error){
     log.error(module_name, method,
-        ' product: ' + product ? product._id : '' +
-        ' user: ' + user ? user._id : '', error);
+        ' product: ' + product ? product.id : '' +
+        ' user: ' + user ? user.id : '', error);
 };
 function write_debug_log(product,user,method,descr){
     log.debug(module_name, method, +
-        ' product: ' + product ? product._id : '' +
-        ' user: ' + user ? user._id : '' +
+        ' product: ' + product ? product.id : '' +
+        ' user: ' + user ? user.id : '' +
         ' ' + descr);
 };

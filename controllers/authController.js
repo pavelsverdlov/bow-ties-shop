@@ -3,7 +3,9 @@ var url = require("url"),
     repository = require("../data/repository"),
     models = require('../models'),
     views = require("../views"),
-    email = require("../controllers/emailController");
+    email = require("../controllers/emailController"),
+    log = require('../controllers/loggerController'),
+    module_name = "authController";
 
 var meta = {
     'title':'Регистрация на сайте магазина галстук-бабочек '+ data.shop_name(),
@@ -45,6 +47,10 @@ exports.confirm_registr = function(req, res){//проверить  по http://w
     });
 };
 
+exports.forgot_passwd = function(req, res) {
+
+};
+
 exports.registration = function(req, res) {
     if (req.session.is_auth && req.session.user) {
         res.redirect(views.actions.home);
@@ -66,33 +72,70 @@ exports.registration_POST = function(req, res){
     user.lastName = req.param('last-name', null);
     user.email = req.param('email', null);
     user.phone = req.param('phone', null);
-    user.isSubscribe = req.param('is-subscribe', null);
+    user.isSubscribe = req.param('is-subscribe', null) !== null;
     user.passwd = req.param('passwd', null);
 
-    repository.user.save(user,function(err, i, user){
-        console.log('user save: ' + i + ' ' + err);
-        //send email;
-        email.sendConfirmAuth(user,
-            generate_url_confirm_reg(user.getId(), user.idate_reg),
-            function(error, response){
+    var sendEmail =
+
+    //if the user has already bought
+    repository.user.findAsync(user.email,user.firstName, user.lastName, function(err,findUser){
+        if(err){
+            write_er_log(null,user,'registration_POST->exports.user.find',err);
+        }
+        if(findUser){
+            if(findUser.idate_reg > 0){
                 meta.canonical = 'http://' + req.get('host') + req.url;
                 var lvm = models.layout.get(req);
                 lvm.meta = meta;
-                if(error){
-                    lvm.content = {
-                        'status': '<div class="alert alert-error"></div>'
-                    };
-                    console.log("Message sent: " + error);
-                }else{
-                    lvm.content = {
-                        'status': '<div class="alert alert-success">Спасибо за регистрацию. Письмо с подтверждением прийдет на ваш почтовый ящик в теченни нескольких минут.</div>'
-                    };
-                    console.log("Message sent: " + response.message);
-                }
-                res.render(views.paths.registration,lvm);
+                lvm.content = {
+                    'status': '<div class="alert alert-block">Вы уже зарегестрированны или не подтвердили запрос на регистрацию. На Вашу почту было повторно отправлено письмо поддвержения.</div>'
+                };
+
+                email.sendConfirmAuth(findUser,generate_url_confirm_reg(findUser.id, findUser.idate_reg),
+                    function(error, response){
+                        if(error){
+                            write_er_log(null,findUser,'registration_POST->repository.user.findAsync->sendConfirmAuth',
+                                'resend confirm message ' + error+' message: ' + response._message);
+                            render_response_error(req,res, views.paths.registration,
+                                'Произошла ошибка при отправке сообщения. Пожалуйста, повторите попытку.');
+                        }else{
+                            write_debug_log(null,findUser,'registration_POST->repository.user.findAsync->sendConfirmAuth',
+                                'resend confirm message');
+                            res.render(views.paths.registration,lvm);
+                        }
+                    }
+                );
+                return;
             }
-        );
-    });
+
+            write_debug_log(null,findUser,'registration_POST->exports.user.find','successful');
+            findUser.phone = req.param('phone', null);
+            findUser.isSubscribe = user.isSubscribe;
+            findUser.passwd = user.passwd;
+            repository.user.resave(findUser,function(err, i, resaveUser){
+                if(err){
+                    write_er_log(null,resaveUser,'registration_POST->repository.user.resave',err);
+                    render_response_error(req,res, views.paths.registration,
+                        'Произошла ошибка во время регистрации. Пожалуйста, повторите попытку.');
+                }else{
+                    write_debug_log(null,resaveUser,'registration_POST->repository.user.resave','index: '+ i);
+                    send_confirm_auth(resaveUser,req,res);
+                }
+            });
+            return;
+        }
+        //new user
+        repository.user.save(user, function(err, i, saveUser){
+            if(err){
+                write_er_log(null,saveUser,'registration_POST->repository.user.save',err);
+                render_response_error(req,res, views.paths.registration,
+                    'Произошла ошибка во время регистрации. Пожалуйста, повторите попытку.');
+            }else{
+                write_debug_log(null,saveUser,'registration_POST->repository.user.save','index: '+ i);
+                send_confirm_auth(saveUser,req,res);
+            }
+        });
+    })
 };
 
 exports.login = function(req, res){
@@ -102,13 +145,16 @@ exports.login = function(req, res){
 exports.login_post = function(req, res){
     repository.user.find(req.param('passwd', null),req.param('email', null),
         function(err,user){
+            var result = {"success": true, "error" : null};
             if (user) {
                 setUserToSession(user,req);
             } else {
-                res.redirect(views.actions.registration);
+                result.success = false;
+                result.error = "Введено неправильное имя пользователя или пароль.";
             }
-            //редирект туда от куда пришел
-            res.redirect(url.parse(req.headers['referer']).pathname);
+            res.writeHead(200, {"Content-Type": "json"});
+            res.write(JSON.stringify(result));
+            res.end();
         }
     );
 };
@@ -117,10 +163,41 @@ exports.logout = function(req, res) {// Удалить сессию
     if (req.session) {
         req.session.destroy(function() {});
     }
-    res.redirect(url.parse(req.headers['referer']).pathname);
+    res.redirect(views.actions.home);//url.parse(req.headers['referer']).pathname);
 };
 
 //
+function render_response_error(req,res,path,message){
+    meta.canonical = 'http://' + req.get('host') + req.url;
+    var lvm = models.layout.get(req);
+    lvm.meta = meta;
+    lvm.content = {
+        'status': '<div class="alert alert-error">'+message+'</div>'
+    };
+    res.render(path,lvm);
+};
+
+function send_confirm_auth(user,req,res){
+    email.sendConfirmAuth(user,generate_url_confirm_reg(user.id, user.idate_reg),
+        function(error, response){
+            if(error){
+                write_er_log(null,user,'registration_POST->repository.user.save',error+' message: ' + response._message);
+                render_response_error(req,res, views.paths.registration,
+                    'Произошла ошибка при отправке сообщения. Пожалуйста, повторите попытку.');
+            }else{
+                meta.canonical = 'http://' + req.get('host') + req.url;
+                var lvm = models.layout.get(req);
+                lvm.meta = meta;
+                lvm.content = {
+                    'status': '<div class="alert alert-success">Спасибо за регистрацию. Письмо с подтверждением прийдет на ваш почтовый ящик в теченни нескольких минут.</div>'
+                };
+                write_debug_log(null,user,'registration_POST->repository.user.save->sendConfirmAuth','');
+                res.render(views.paths.registration,lvm);
+            }
+
+        }
+    );
+}
 
 function generate_url_confirm_reg(id,date){
     return 'http://www.bow-ties.od.ua/auth/confirm/' +id+'/' + date;
@@ -132,6 +209,17 @@ function setUserToSession(user, req){
     req.session.user = user;
 }
 
+function write_er_log(product,user,method,error){
+    log.error(module_name, method,
+        ' product: ' + product ? product.id : '' +
+            ' user: ' + user ? user.id : '', error);
+};
+function write_debug_log(product,user,method,descr){
+    log.debug(module_name, method, +
+        ' product: ' + product ? product.id : '' +
+        ' user: ' + user ? user.id : '' +
+        ' ' + descr);
+};
 
 
 

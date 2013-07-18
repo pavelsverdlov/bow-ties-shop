@@ -1,6 +1,6 @@
 <% include _header.ejs %>
 <div class="page-home">
-    <img src="http://b.cdn.ties.com/19401.jpg" style="width: 100%">
+    <!--<img src="http://b.cdn.ties.com/19401.jpg" style="width: 100%">-->
     <div class="row-fluid">
         <ul class="thumbnails">
             <li class="span3">
@@ -131,67 +131,67 @@
             i+=step;
 
         }
-        setTimeout(slider, 2000);
+        //setTimeout(slider, 2000);
     }
 
-
-    var isIncrement;
-    var step = 234;
-    var index;
-    var length;
-    var current;
-    var leftArray=[];
-    function slider(){
-        var array = $('div.slide-container div');
-        var count = array.length;
-        var value = parseInt($(array[count-1]).css('left').replace('px',''));
-        var start = parseInt($(array[0]).css('left').replace('px',''));
-
-        if(start === 0){
-            current = 1;
-            index = 0;
-            length = count;
-
-            isIncrement = true;
-        }else if(value === 0){
-            index = count-1;
-            length = 0;
-            //step = -234;
-            isIncrement = false;
-            current = index;
-        }
-        var isNextWillShow = false;
-        while(true){
-            if(isIncrement && index === length || !isIncrement && index < 0){
-                index = isIncrement ? 0:count-1;
-                break;
-            }
-            var item = $(array[index]);
-            value = leftArray[index];//parseInt(item.css('left').replace('px',''));
-            if(!isNextWillShow){
-                isNextWillShow = value === 0;
-                console.log(value+ '-'+ step+'=');
-                value = isIncrement ? value - step :value + step ;
-                console.log(value);
-                item.animate({left:value+'px'},500);
-            }else{
-                item.animate({left:'0px'},500);
-                isNextWillShow = !isNextWillShow;
-                value = 0;
-            }
-            leftArray[index] = value;
-            index =  isIncrement ? index +1:index-1;
-        }
-        setTimeout(slider, 2000);
-    }
-
-    function changeStarImage(imgTag,srcUrl){
-        var count = parseInt(imgTag.attr('alt'));
-        for(var i=1;i < count; ++i){
-            $('img[alt='+i+']').attr('src',srcUrl);
-        }
-        imgTag.attr('src',srcUrl);
-    }
+//
+//    var isIncrement;
+//    var step = 234;
+//    var index;
+//    var length;
+//    var current;
+//    var leftArray=[];
+//    function slider(){
+//        var array = $('div.slide-container div');
+//        var count = array.length;
+//        var value = parseInt($(array[count-1]).css('left').replace('px',''));
+//        var start = parseInt($(array[0]).css('left').replace('px',''));
+//
+//        if(start === 0){
+//            current = 1;
+//            index = 0;
+//            length = count;
+//
+//            isIncrement = true;
+//        }else if(value === 0){
+//            index = count-1;
+//            length = 0;
+//            //step = -234;
+//            isIncrement = false;
+//            current = index;
+//        }
+//        var isNextWillShow = false;
+//        while(true){
+//            if(isIncrement && index === length || !isIncrement && index < 0){
+//                index = isIncrement ? 0:count-1;
+//                break;
+//            }
+//            var item = $(array[index]);
+//            value = leftArray[index];//parseInt(item.css('left').replace('px',''));
+//            if(!isNextWillShow){
+//                isNextWillShow = value === 0;
+//                console.log(value+ '-'+ step+'=');
+//                value = isIncrement ? value - step :value + step ;
+//                console.log(value);
+//                item.animate({left:value+'px'},500);
+//            }else{
+//                item.animate({left:'0px'},500);
+//                isNextWillShow = !isNextWillShow;
+//                value = 0;
+//            }
+//            leftArray[index] = value;
+//            index =  isIncrement ? index +1:index-1;
+//        }
+//        setTimeout(slider, 2000);
+//    }
+//
+//    function changeStarImage(imgTag,srcUrl){
+//        var count = parseInt(imgTag.attr('alt'));
+//        for(var i=1;i < count; ++i){
+//            $('img[alt='+i+']').attr('src',srcUrl);
+//        }
+//        imgTag.attr('src',srcUrl);
+//    }
 
 </script>
 <% include _footer.ejs %>

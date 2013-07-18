@@ -1,8 +1,9 @@
 var UserViewModel = function(){
-    this._id ='';
-    this.getId = function(){
-        return this._id.toHexString();
-    };
+    this._id =null;
+    this.id ='';
+//    this.getId = function(){
+//        return this._id;
+//    };
     this.firstName = '';
     this.lastName = '';
     this.email = '';
@@ -11,7 +12,7 @@ var UserViewModel = function(){
     this.orders = [];
     this.isSubscribe = false;
     this.role = 2;
-    this.idate_reg = '';
+    this.idate_reg = 0;
     //
     this.salt = '';
     this.hashed_password = '';
@@ -35,7 +36,7 @@ exports.createModel = function(dbModel){
     user.firstName = dbModel.firstName;
     user.lastName = dbModel.lastName;
     user.email = dbModel.email;
-    user._id = dbModel._id;//._id.toHexString();
+    user.id = dbModel._id.toHexString();
     user.role = dbModel.role;
     user.salt = dbModel.salt;
     user.hashed_password = dbModel.hashed_password;

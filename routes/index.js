@@ -28,6 +28,8 @@ exports.init = function(app){
     app.post(views.actions.registration, auth.registration_POST);
     //app.del
     app.get('/auth/logout/', auth.checkLogin, auth.logout);
+    app.post('/auth/login/forgot_passwd/', auth.forgot_passwd);
+
 
     app.get('/user/orders/:id/', auth.checkLogin, user.orders);
     app.get('/user/settings/:id/', auth.checkLogin, user.settings);

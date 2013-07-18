@@ -74,7 +74,6 @@
     </div>
 </div>
 <% include _scripts.ejs %>
-<script type="text/javascript" src="/js/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
     function init(){    }
@@ -101,6 +100,9 @@
                 email: {
                     required: true,
                     email: true
+                },
+                phone: {
+                    number: true
                 }
 //                    topic: {
 //                        required: "#newsletter:checked",
@@ -126,7 +128,8 @@
                     minlength: "Ваш пароль не должн быть меньше 5-ти символов",
                     equalTo: "Пароли должны быть одинаковые"
                 },
-                email: "Пожалуйста введите корректный почтовый адрес"
+                email: "Пожалуйста введите корректный почтовый адрес",
+                phone: "Пожалуйста введите корректный номер телефона"
             }
         });
     });

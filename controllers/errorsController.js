@@ -12,8 +12,13 @@ exports.handler = function(req,res,next){
     var lvm =  models.layout.get(req);
 
     res.status(404);
-    lvm.content = '404';
-
+    lvm.content = 'Приносим свои извинения но данной страницы не существует :(';
+    lvm.meta = {
+        'title':'Error 404',
+        'keywords':'',
+        'descr':'',
+        'canonical': 'http://' + req.get('host') + req.url
+    };
     if(req.accepts('html')){
         res.render(views.paths.err404,lvm);
     }

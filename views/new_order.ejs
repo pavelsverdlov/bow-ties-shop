@@ -42,17 +42,17 @@
                 <textarea class="input-xlarge" name="comments" id="comments" rows="3"></textarea>
             </div>
         </div>
-        <% if(!user){ %>
-        <div class="control-group">
-            <label class="control-label" for="is-subscribe">Подписаться:</label>
-            <div class="controls">
-                <label class="checkbox">
-                    <input type="checkbox" name="is-subscribe" id="is-subscribe" value="option1">
-                    Хотите ли вы получать информацию о новинках и новостях с нашего сайта.
-                </label>
-            </div>
-        </div>
-        <% } %>
+        <!-- if(!user){ %>-->
+        <!--<div class="control-group">-->
+            <!--<label class="control-label" for="is-subscribe">Подписаться:</label>-->
+            <!--<div class="controls">-->
+                <!--<label class="checkbox">-->
+                    <!--<input type="checkbox" name="is-subscribe" id="is-subscribe" value="option1">-->
+                    <!--Хотите ли вы получать информацию о новинках и новостях с нашего сайта.-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--} %>-->
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">Отправить заказ</button>
         </div>
@@ -67,7 +67,6 @@
 
 
 <% include _scripts.ejs %>
-<script type="text/javascript" src="/js/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
     function init(){    }
@@ -94,6 +93,9 @@
                 email: {
                     required: true,
                     email: true
+                },
+                phone: {
+                    number: true
                 }
 //                    topic: {
 //                        required: "#newsletter:checked",
@@ -119,7 +121,8 @@
                     minlength: "Ваш пароль не должн быть меньше 5-ти символов",
                     equalTo: "Пароли должны быть одинаковые"
                 },
-                email: "Пожалуйста введите корректный почтовый адрес"
+                email: "Пожалуйста введите корректный почтовый адрес",
+                phone: "Пожалуйста введите корректный номер телефона"
             }
         });
     });

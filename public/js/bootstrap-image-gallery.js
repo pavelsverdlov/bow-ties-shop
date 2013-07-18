@@ -1,39 +1,25 @@
-/*
- * Bootstrap Image Gallery 2.10
- * https://github.com/blueimp/Bootstrap-Image-Gallery
- *
- * Copyright 2011, Sebastian Tschan
- * https://blueimp.net
- *
- * Licensed under the MIT license:
- * http://www.opensource.org/licenses/MIT
- */
-
-/*jslint nomen: true, regexp: true */
-/*global define, window, document, jQuery */
-
 (function (factory) {
     'use strict';
 
     if (typeof define === 'function' && define.amd) {
         // Register as an anonymous AMD module:
-        define([
-            'jquery',
-            'load-image',
-            'bootstrap'
-        ], factory);
+        define([ 'jquery','load-image', 'bootstrap' ], factory);
     } else {
         // Browser globals:
-        factory(
-            window.jQuery,
-            window.loadImage
-        );
+        factory(window.jQuery, window.loadImage);
     }
 }(function ($, loadImage) {
     'use strict';
-    //load products
-
     var products = {};
+//    $.each(array, function (index, photo) {
+//        products[photo.id] = photo;
+//    });
+
+    $.ajax({ url: '/api/getProducts/', dataType: 'json'}).done(function (data) {
+        $.each(data, function (index, photo) {
+            products[photo.id] = photo;
+        });
+    });
 
     function estim(index,iRaty){
         var tag = '<div id="raty-'+index+'" class="estimate" data-rating="2.9779" style="display: inline; cursor: pointer" '+
@@ -47,36 +33,9 @@
                '<span class="hidden" itemprop="reviewCount">10</span>' + //кол отзывов
             '</div>';//<input type="hidden" name="score" value="2.9779">
         return tag;
-    }
+    };
 
-    // Load images via flickr for demonstration purposes:
-    $.ajax({ url: '/api/getProducts/', dataType: 'json'}).done(function (data) {
-       // var product = $('#gallery');
-       // var index = 1;
-        $.each(data, function (index, photo) {
-//            $('<div class="thumbnail product-item" itemscope itemtype="http://schema.org/Product"></div>').append(
-//                $('<a data-gallery="gallery"/>')
-//                    // .append('<div class="label label-info price">€ 10,<sup>99</sup></div>')
-//                    .append($('<img>')
-//                    .prop('src', photo.imgPath))//
-//                    .prop('href', photo.imgPath)
-//                    .prop('title', photo.title + '-' + photo.descr +'-'+photo.price)
-//                    .prop('alt', photo.title +'-'+photo.descr)
-//                    .prop('id', photo._id)
-//                    .prop('itemprop','image')
-//            )
-//                .append('<div class="caption" itemprop="review" itemscope itemtype="http://schema.org/Review">'+
-//                    '<p><span itemprop="name">' + photo.title+'</span></p>'+
-//                //<link itemprop="availability" href="http://schema.org/InStock" />In stock - доступность
-//                    estim(index, photo.iRaty)+
-//                    '<div class="label-info price pull-right" itemprop="offers" itemscope itemtype="http://schema.org/Offer">'+
-//                        '<span itemprop="price">' + photo.price +
-//                ' грн.<meta itemprop="currency" content="UAH"/></span></div></div>')
-//                .appendTo(product);
-//            ++index;
-            products[photo._id] = photo;
-        });
-    });
+//
 
     // Bootstrap Image Gallery is an extension to the Modal dialog of Twitter's
     // Bootstrap toolkit, to ease navigation between a set of gallery images.
@@ -195,7 +154,7 @@
             window.setTimeout(function () { oldImg.remove(); }, 3000)
             //add information
             var prod = products[this.$links[index].id];
-            modal.find('.modal-number').text(prod._id);
+            modal.find('.modal-number').text(prod.id);
             modal.find('.modal-price').text(prod.price + ' грн.');
             modal.find('#descr').text(prod.descr);
             modal.find('#size').text(prod.size);

@@ -8,7 +8,7 @@
         <a data-gallery="gallery"
            href="<%= content.products[i].imgPath %>"
            title="<%= content.products[i].title + '-' + content.products[i].descr +'-'+content.products[i].price %>"
-           id="<%= content.products[i]._id %>">
+           id="<%= content.products[i].id %>">
             <img src="<%= content.products[i].imgPath %>" itemprop="image"
                  alt="<%= content.products[i].title + '-' + content.products[i].descr %>"></a>
         <div class="caption">
@@ -94,6 +94,7 @@
 
 <script type="text/javascript">
     function init(){
+
 //        $('#raty img').mouseover(function(){ );
 //        }).(function(){  });
         $('#neworder').click(function(){
@@ -102,6 +103,8 @@
         $('div.estimate img').click(function(){
 
         });
+
+//        load_product([]);
     }
 
     function estimateSelect(ibow,index){

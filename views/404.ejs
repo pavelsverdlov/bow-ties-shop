@@ -1,6 +1,17 @@
 <% include _header.ejs %>
 
-<span><%= content %></span>
+<div>
+    <style>
+        .center {text-align: center; margin-left: auto; margin-right: auto; margin-bottom: auto; margin-top: auto;}
+    </style>
+    <!--<title>Error 404</title>-->
+
+    <div class="hero-unit center" style="background: transparent;border-color: transparent">
+        <h1>Page Not Found</h1>
+        <br>
+        <p><%= content %></p>
+    </div>
+</div>
 
 <% include _scripts.ejs %>
 

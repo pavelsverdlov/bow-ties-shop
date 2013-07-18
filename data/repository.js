@@ -7,9 +7,6 @@ var mongoClient = require('mongodb').MongoClient,
     BSON = require('mongodb').pure().BSON,
     crypto = require('crypto');
 
-var user ='bts_mdbd',
-    pass='jltccrfzblacc20',
-    url = 'mongodb://bts_mdbd:jltccrfzblacc20@dharma.mongohq.com:10092/bow-ties-shop';
 
 //var exec = require("child_process").exec;
 var models = require("../models");
@@ -84,7 +81,7 @@ exports.product =  {
 
     getById: function(id){
         for(var i=0; i < products.length; ++i){
-            if(id === products[i].getId()){
+            if(id === products[i].id){
                 return products[i];
             }
         }
@@ -127,6 +124,8 @@ exports.user = {
                             var _user = models.user.createModel(docs[0]);
                             if(crypt.encrypt(passwd,_user.salt) === _user.hashed_password){
                                 callback(null,_user);
+                            }else{
+                                callback('Password is not correct',null);
                             }
                         }else{
                             callback(err,null);
@@ -167,6 +166,19 @@ exports.user = {
             });
         });
     },
+    findAsync: function(email,firstName, lastName, callback){
+        var col_name = this.name;
+        connect('',function(db){
+            db.collection(col_name).find( {email: email, firstName: firstName, lastName:lastName }, {limit:1})
+                .toArray(function(err, docs) {
+                    if(docs.length){
+                        callback(null,models.user.createModel(docs[0]));
+                    }else{
+                        callback(err,null);
+                    }
+                });
+        });
+    },
 
     getList: function(func){
 //        if(users.length){
@@ -183,11 +195,31 @@ exports.user = {
     },
     save: function(model,callback){
         model._id  = new ObjectID();
-        model.idate_reg = parseInt(+(new Date()));
-        model.salt = crypt.makeSalt();
-        model.hashed_password = crypt.encrypt(model.passwd,model.salt);
+        if(model.passwd && model.passwd !== ''){
+            model.idate_reg = parseInt(+(new Date()));
+            model.salt = crypt.makeSalt();
+            model.hashed_password = crypt.encrypt(model.passwd,model.salt);
+        }
         save(this.name,model,function(err, i){
+            model.id = model._id.toHexString();
             callback(err, i, model);
+        });
+    },
+    resave: function(model,callback){
+        remove(this.name,{_id:ObjectID(model.id)}, function(err, numberOfRemovedDocs){
+            if(err){
+                callback(err,numberOfRemovedDocs,model);
+            }else{
+                exports.user.save(model,callback);
+            }
+//            model._id  = new ObjectID();
+//            model.idate_reg = parseInt(+(new Date()));
+//            model.salt = crypt.makeSalt();
+//            model.hashed_password = crypt.encrypt(model.passwd,model.salt);
+//            save(this.name,model,function(err, i){
+//                model.id = model._id.toHexString();
+//                callback(err, i, model);
+//            });
         });
     },
     confirmAuth: function(id,callback){
@@ -195,14 +227,19 @@ exports.user = {
     },
     addOrderAsync: function(_user,id_product){
         _user.orders.push(id_product);
-        update(this.name, {_id:_user._id},{$set: {orders: _user.orders}}, {safe:false});
+        update(this.name, {_id:ObjectID(_user.id)},{$set: {orders: _user.orders}}, {safe:false});
     }
 };
-
+function remove(collection_name, keys, callback){
+    connect(collection_name,function(db){
+        db.collection(collection_name)
+            .remove(keys, callback || function(){ });
+    });
+};
 function update(collection_name, keys, fields, safe, callback){
     connect(collection_name,function(db){
         db.collection(collection_name)
-            .update(keys, fields, safe, callback || function(){});
+            .update(keys, fields, safe, callback || function(){ });
     });
 };
 function save(collection_name, model, callback){

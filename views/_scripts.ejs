@@ -30,79 +30,123 @@
     </footer>
     <div class="dialog-login" style="display: none">
         <div>
-        <form class="dialog-body" novalidate="" id="gaia_loginform" action="<%= login.link %>" method="post">
-            <div class="controls">
-                <label class="control-label" for="email"><strong>Почта</strong></label>
-                <input class="input-xlarge" type="email" spellcheck="false" name="email" id="email" value="">
-                <p class="help-block"></p>
-            </div>
-            <div class="controls">
-                <label class="control-label" for="passwd"><strong>Пароль</strong></label>
-                <input class="input-xlarge" type="password" name="passwd" id="passwd" value="">
-                <p class="help-block"></p>
-            </div>
-            <button type="submit" class="btn btn-primary">Войти</button>
-            <div style="float: right; margin-top: 10px">
-                <label class="checkbox"><input type="checkbox" id="remember-me" value="">Оставаться в системе</label>
-                <input type="hidden" name="rmShown" value="1">
-            </div>
-        </form>
-        <a id="link-forgot-passwd" href="#" target="_top">Не удается войти в аккаунт?</a>
+            <form class="dialog-body" novalidate="" id="login-form" action="<%= login.link %>" method="post">
+                <div class="controls">
+                    <label class="control-label" for="email"><strong>Почта</strong></label>
+                    <input class="input-xlarge" type="email" spellcheck="false" name="email" id="email" value="">
+                    <p class="help-block"></p>
+                </div>
+                <div id='block-passwd' class="controls">
+                    <label class="control-label" for="passwd"><strong>Пароль</strong></label>
+                    <input class="input-xlarge" type="password" name="passwd" id="passwd" value="">
+                </div>
+                <p class="error" id="error-block"></p>
+                <!--<a id="login-submit"  type="submit" class="btn btn-primary">Войти</a>-->
+                <button id="login-submit" class="btn btn-primary">Войти</button>
+                <div style="float: right; margin-top: 10px">
+                    <!--<label class="checkbox"><input type="checkbox" id="remember-me" value="">Оставаться в системе</label>-->
+                    <!--<input type="hidden" name="rmShown" value="1">-->
+                    <a id="link-forgot-passwd" href="#" target="_top">Забыли пароль?</a>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script type="text/javascript" src="/js/jquery.validate.min.js"></script>
+<script src="http://malsup.github.io/jquery.blockUI.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     var dial;
     $(window).load(function(){
         init();
-        dial = createEmailDialog('.dialog-login');
-
+        dial = $("#login-form");
+        dial.validate({
+            rules: {
+                passwd: {
+                    required: true,
+                    minlength: 5
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                passwd: {
+                    required: "Пожалуйста введите пароль",
+                    minlength: "Ваш пароль не должн быть меньше 5-ти символов"
+                },
+                email: "Пожалуйста введите корректный почтовый адрес",
+            }
+        });
     });
     $('a#login').click(function(){
+        createEmailDialog("Войти",'<%= login.link %>');
+        $('#block-passwd').show();
+        $('a#link-forgot-passwd').show();
+        $('#login-submit').text('Войти');
+       // $.blockUI({ message: dial});
         dial.dialog("open");
     });
-    function createEmailDialog(elementKey) {
-        var dialogForm = $(elementKey);
-        function onSubmitForm() {
-            $.ajax({
-                url: this.action,
-                type: this.method,
-                data: $(this).serialize(),
-                success: function (result) {
-                    if (result.success) {
-                        dialogForm.dialog("close");
-                        dialogForm.empty();
-                    } else {
-                        dialogForm.empty();
-                        dialogForm.html(result);
-                        dialogForm.dialog("open");
-                    }
-                }
-            });
-            return false;
-        }
+    $('a#link-forgot-passwd').click(function(){
+        dial.dialog("close");
+        createEmailDialog("Отправка пароля",'/auth/login/forgot_passwd/');
+        $('#login-submit').text('Отправить');
+        $('#block-passwd').hide();
+        $(this).hide();
+        dial.dialog("open");
+    });
+    $('#login-submit').click(function(){
+        $('#error-block').text('');
+        if(!$('#login-form').valid()){ return; }
+        dial.submit(onSubmitLoginForm);
+        dial.submit();
+        return false;
+    });
 
-        dialogForm.dialog({
-            title: "Войти",
+
+    function createEmailDialog(title,action) {
+        //var d = $('dialog-login');
+        dial.attr('action',action);
+        dial.dialog({
+            title: title,
             modal: true,
-//            resizable: false,
-//            closeText: 'fechar',
-//            show: 'fade',
-//            hide: 'fade',
             width: "350px",
             autoOpen: false,
             dialogClass: "main-dialog"
-//            buttons: {
-//                "Войти": function () {
-//                    $("form#send-mail").submit(onSubmitForm);
-//                    $("form#send-mail").submit();
-//                },
-//                "Отмена": function () { $(this).dialog("close"); }
-//            }
         });
-        return dialogForm;
+    };
+    function onSubmitLoginForm() {
+        $.blockUI({message: '<h4>Пожалуйста подождите.</h4>'});
+//        $.blockUI({ css: {
+//            border: 'none',
+//            padding: '15px',
+//            backgroundColor: '#000',
+//            '-webkit-border-radius': '10px',
+//            '-moz-border-radius': '10px',
+//            opacity: .5,
+//            color: '#fff'
+//        } });
+        $.ajax({
+            url: dial.attr('action'),
+            type: dial.attr('method'),
+            data: dial.serialize(),
+            async: true,
+            success: function (result) {
+                if (result.success) {
+                    dial.dialog("close");
+                    $.unblockUI();
+                    location.reload();
+                } else {
+                    $('#error-block').text(result.error);
+                    $('#passwd').val('');
+                    $.unblockUI();
+                }
+            }
+        });
+        return false;
     }
 </script>
