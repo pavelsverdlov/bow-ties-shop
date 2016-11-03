@@ -7,6 +7,7 @@ var mongoClient = require('mongodb').MongoClient,
     BSON = require('mongodb').pure().BSON,
     crypto = require('crypto');
 
+var url = "mongodb://bts_mdbd:jltccrfzblacc20@dharma.mongohq.com:10092/bow-ties-shop";
 
 //var exec = require("child_process").exec;
 var models = require("../models");
@@ -16,6 +17,7 @@ var products =[],
     users =[];
 
 mongoClient.connect(url, function(err, db) {
+    return;
     if(err) throw err;
     console.log("connected");
     var collection = db.collection('products');
@@ -32,6 +34,7 @@ mongoClient.connect(url, function(err, db) {
 });
 
 exports.getConnection = function(){
+    return;
     //return url;//
     return mongoClient.connect(url);
 };
@@ -41,8 +44,8 @@ exports.getStoreConnectionArgs = function(){
         db: 'bow-ties-shop',
         host: 'dharma.mongohq.com',
         port: '10092',
-        username:user,
-        password: pass
+        username:"bts_mdbd",
+        password: "jltccrfzblacc20"
     };
 };
 /*
@@ -87,7 +90,7 @@ exports.product =  {
         }
     },
     getList: function(func){
-
+        return;
         find(this.name, function(err, docs){
             if(err) throw err;
             if(products.length){
@@ -107,6 +110,7 @@ exports.product =  {
 exports.user = {
     name: 'users',
     find: function(passwd,email,callback){
+        return;
 //        if(users.length){
 //            for(var i=0; i < users.length; ++i){
 //                if(crypt.encrypt(passwd,users[i].salt) === users[i].hashed_password && email == users[i].email){
@@ -136,6 +140,7 @@ exports.user = {
 //        }
     },
     findById: function(id,callback){
+        return;
         var col_name = this.name;
         connect('',function(db){
             db.collection(col_name).find( {_id: ObjectID(id)}, {limit:1}).toArray(
@@ -151,6 +156,7 @@ exports.user = {
         });
     },
     findOrCreateAsync: function(email,firstName, lastName, callback){
+        return;
         var col_name = this.name;
         connect('',function(db){
             db.collection(col_name).find( {email: email, firstName: firstName, lastName:lastName }, {limit:1})
@@ -167,6 +173,7 @@ exports.user = {
         });
     },
     findAsync: function(email,firstName, lastName, callback){
+        return;
         var col_name = this.name;
         connect('',function(db){
             db.collection(col_name).find( {email: email, firstName: firstName, lastName:lastName }, {limit:1})
@@ -181,6 +188,7 @@ exports.user = {
     },
 
     getList: function(func){
+        return;
 //        if(users.length){
 //            func(users);
 //            return;
@@ -194,6 +202,7 @@ exports.user = {
         });
     },
     save: function(model,callback){
+        return;
         model._id  = new ObjectID();
         if(model.passwd && model.passwd !== ''){
             model.idate_reg = parseInt(+(new Date()));
@@ -206,6 +215,7 @@ exports.user = {
         });
     },
     resave: function(model,callback){
+        return;
         remove(this.name,{_id:ObjectID(model.id)}, function(err, numberOfRemovedDocs){
             if(err){
                 callback(err,numberOfRemovedDocs,model);
@@ -250,6 +260,7 @@ function save(collection_name, model, callback){
 };
 
 function find(collection_name, callback){
+    return;
     connect(collection_name,function(db){
         db.collection(collection_name)
             .find({}, {limit:10}).toArray( callback || function(){});
@@ -257,6 +268,8 @@ function find(collection_name, callback){
 };
 
 function connect(collection_name,action){
+    return;
+    /*
     mongoClient.connect(url, function(err, db) {
         if(err){
             console.log("connected exception: "+err);
@@ -264,7 +277,7 @@ function connect(collection_name,action){
             action(db);
         }
        // mongoClient.close();
-    });
+    });*/
 };
 
 var crypt = {
@@ -282,6 +295,8 @@ var crypt = {
 *
 *   Mongo URI
 *   mongodb://<user>:<password>@dharma.mongohq.com:10092/bow-ties-shop
+*
+*
 *
 * user: bts_mdbd
 * pass: jltccrfzblacc20

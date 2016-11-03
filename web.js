@@ -24,7 +24,7 @@ app.configure(function(){
   app.use(express.cookieParser());
   app.use(express.session({
       secret: 'your secret here',
-      store: new mongoStore(repository.getStoreConnectionArgs())
+     // store: new mongoStore(repository.getStoreConnectionArgs())
   }));
 });
 
