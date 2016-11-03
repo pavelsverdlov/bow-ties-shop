@@ -13,7 +13,6 @@
     "express": "3.1.0",
     "ejs": "*",
     "less-middleware": "*",
-   /* "mongodb": "*",*/
     "nodemail":"*"
   },
   "main": "app.js"

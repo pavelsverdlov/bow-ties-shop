@@ -7,7 +7,7 @@ var mongoClient = require('mongodb').MongoClient,
     BSON = require('mongodb').pure().BSON,
     crypto = require('crypto');
 
-var url = "mongodb://bts_mdbd:jltccrfzblacc20@dharma.mongohq.com:10092/bow-ties-shop";
+//var url = "mongodb://bts_mdbd:jltccrfzblacc20@dharma.mongohq.com:10092/bow-ties-shop";
 
 //var exec = require("child_process").exec;
 var models = require("../models");
