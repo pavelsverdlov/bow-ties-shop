@@ -3,7 +3,7 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , repository = require('./data/repository')
-// , mongoStore = require('connect-mongo')(express);
+  //, mongoStore = require('connect-mongo')(express);
 //
 var app = express();
 //var db = repository.getConnection();
@@ -24,7 +24,7 @@ app.configure(function(){
   app.use(express.cookieParser());
   app.use(express.session({
       secret: 'your secret here',
-     // store: new mongoStore(repository.getStoreConnectionArgs())
+      //store: new mongoStore(repository.getStoreConnectionArgs())
   }));
 });
 
