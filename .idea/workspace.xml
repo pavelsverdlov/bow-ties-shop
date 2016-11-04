@@ -5,237 +5,7 @@
     <bookmark url="file://$PROJECT_DIR$/controllers/contactController.js" line="125" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37c578a9-0bd4-44c1-b540-ba7a782f140a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/connect-mongo/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/connect-mongo/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/connect-mongo/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/connect-mongo/lib/connect-mongo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/connect-mongo/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/CONTRIBUTING.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/Makefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/install.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/admin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/collection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/base_command.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/db_command.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/delete_command.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/get_more_command.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/insert_command.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/kill_cursor_command.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/query_command.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/commands/update_command.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/base.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/connection.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/connection_pool.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/connection_utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/mongos.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/read_preference.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/repl_set.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/strategies/ping_strategy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/strategies/statistics_strategy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/connection/url_parser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/cursor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/cursorstream.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/db.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/gridfs/chunk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/gridfs/grid.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/gridfs/gridstore.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/gridfs/readstream.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/mongo_client.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/responses/mongo_reply.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/lib/mongodb/utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/Makefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/benchmarks/benchmarks.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/binding.gyp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/browser_build/bson.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/browser_build/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/Makefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/Release/.deps/Release/bson.node.d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/Release/.deps/Release/obj.target/bson.node.d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/Release/.deps/Release/obj.target/bson/ext/bson.o.d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/Release/bson.node" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/Release/linker.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/Release/obj.target/bson.node" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/Release/obj.target/bson/ext/bson.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/binding.Makefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/bson.target.mk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build/config.gypi" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/build_browser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/Makefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/bson.cc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/bson.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/win32/ia32/bson.node" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/win32/x64/bson.node" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/ext/wscript" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/binary.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/binary_parser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/bson.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/code.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/db_ref.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/double.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/float_parser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/long.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/max_key.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/min_key.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/objectid.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/symbol.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/lib/bson/timestamp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/browser/browser_example.htm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/browser/bson_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/browser/nodeunit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/browser/suite2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/browser/suite3.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/browser/test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/node/bson_array_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/node/bson_parser_comparision_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/node/bson_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/node/bson_typed_array_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/node/data/test_gs_weird_bug.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/node/test_full_bson.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/node/to_bson_test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/test/node/tools/utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/tools/gleak.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/MIT.LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine-html.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/node_modules/bson/tools/jasmine-1.1.0/jasmine_favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/mongodb/upload.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/examples/example_alternative.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/examples/example_autoembedding.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/examples/example_dkim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/examples/example_sendmail.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/examples/example_ses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/examples/example_smtp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/examples/example_xoauth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/examples/example_xoauth2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/examples/nyan.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/examples/test_private.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/engines/sendmail.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/engines/ses.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/engines/smtp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/engines/stub.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/helpers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/transport.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/wellknown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/xoauth.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/lib/dkim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/lib/mailcomposer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/lib/punycode.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/lib/urlfetch.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/mime.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/types/mime.types" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mime/types/node.types" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/benchmark/20000.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/benchmark/run.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/lib/content-types-reversed.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/lib/content-types.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/lib/mimelib.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/addressparser/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/gbk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/singlebyte.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/encodings/table/gbk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/generation/generate-singlebyte.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/test/cyrillic-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/test/gbk-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/test/gbkFile.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/test/greek-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/test/main-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/test/performance.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/node_modules/iconv-lite/test/turkish-test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/node_modules/encoding/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/node_modules/mimelib/test/mimelib.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/test/dkim.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/test/image3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/test/mailcomposer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/test/test_private.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/test/test_public.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/mailcomposer/test/textfile.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/examples/simpleserver.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/examples/validate-recipient.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/lib/client.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/lib/pool.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/lib/server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/lib/simpleserver.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/lib/starttls.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/cert/cert.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/cert/key.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/examples/smtp.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/lib/mockup.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/lib/rai.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/lib/starttls.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/rai/test/rai.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/xoauth2/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/xoauth2/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/xoauth2/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/xoauth2/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/node_modules/xoauth2/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/test/client.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/test/pool.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/test/server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/node_modules/simplesmtp/test/testmessage.eml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/nodemailer/test/nodemailer.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/repository.js" afterPath="$PROJECT_DIR$/data/repository.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/.npmignore" afterPath="$PROJECT_DIR$/node_modules/nodemailer/.npmignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/LICENSE" afterPath="$PROJECT_DIR$/node_modules/nodemailer/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/README.md" afterPath="$PROJECT_DIR$/node_modules/nodemailer/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/lib/nodemailer.js" afterPath="$PROJECT_DIR$/node_modules/nodemailer/lib/nodemailer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/nodemailer/package.json" afterPath="$PROJECT_DIR$/node_modules/nodemailer/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web.js" afterPath="$PROJECT_DIR$/web.js" />
-    </list>
+    <list default="true" id="37c578a9-0bd4-44c1-b540-ba7a782f140a" name="Default" comment="" />
     <ignored path="bow-ties-shop.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -257,28 +27,28 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            <state relative-caret-position="272">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="emailController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="emailController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/emailController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+            <state relative-caret-position="153">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="repository.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="repository.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/repository.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+            <state relative-caret-position="391">
+              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -319,9 +89,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/data/repository.js" />
         <option value="$PROJECT_DIR$/web.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/data/repository.js" />
       </list>
     </option>
   </component>
@@ -399,99 +169,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bow-ties-shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -530,11 +208,11 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.web.js">
@@ -638,7 +316,7 @@
       <option name="presentableId" value="Default" />
       <updated>1363631903706</updated>
       <workItem from="1478256204886" duration="384000" />
-      <workItem from="1478256598281" duration="788000" />
+      <workItem from="1478256598281" duration="2022000" />
     </task>
     <task id="LOCAL-00001" summary="added mongo db and controllers">
       <created>1364653726133</created>
@@ -658,7 +336,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1172000" />
+    <option name="totallyTimeSpent" value="2406000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="2514" height="1456" extended-state="6" />
@@ -924,22 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/emailController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -950,8 +612,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/repository.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+        <state relative-caret-position="391">
+          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/emailController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding />
         </state>
       </provider>
